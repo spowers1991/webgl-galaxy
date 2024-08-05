@@ -13,7 +13,7 @@ export class Star {
     public coronaParticles: BABYLON.ParticleSystem;
     public starConfig: StarConfig;
     public sceneConfig: SceneConfig;
-    private glowLayer: BABYLON.GlowLayer;
+    private glowLayer: BABYLON.GlowLayer; // Reference to the shared glow layer
     private lavaTexture: BABYLON.Texture | null;
 
     constructor(scene: BABYLON.Scene, sceneConfig: SceneConfig, starConfig: StarConfig) {
@@ -40,9 +40,9 @@ export class Star {
 
         this.mesh.material = this.material;
 
-        // Create a glow layer and add the star mesh to it
-        this.glowLayer = new BABYLON.GlowLayer("glow", scene);
-        this.glowLayer.intensity = 0.5; // Adjust intensity for performance
+        // Remove glow layer creation from here
+        // this.glowLayer = new BABYLON.GlowLayer("glow", scene);
+        // this.glowLayer.intensity = 0.5;
 
         // Setup the sun emitter
         const sunEmitter = new BABYLON.SphereParticleEmitter();
@@ -68,6 +68,12 @@ export class Star {
         this.observeGlobalState();
     }
 
+    // Method to set the glow layer
+    public setGlowLayer(glowLayer: BABYLON.GlowLayer) {
+        this.glowLayer = glowLayer;
+        this.glowLayer.addIncludedOnlyMesh(this.mesh);
+    }
+
     // Observable global state for active Stars
     private observeGlobalState() {
         autorun(() => {
@@ -84,7 +90,9 @@ export class Star {
                 this.surfaceParticles.start();
                 this.flareParticles.start();
                 this.coronaParticles.start();
-                this.glowLayer.isEnabled = true;
+                if (this.glowLayer) {
+                    this.glowLayer.isEnabled = true;
+                }
 
                 // Find current Star and set the entire Object to setActiveObject
                 if (sceneState.getActiveObject().pickedMesh === this.mesh) {
@@ -92,8 +100,7 @@ export class Star {
                     console.log(this);
                     this.flareParticles.renderingGroupId = 1;
                     this.coronaParticles.renderingGroupId = 1;
-                    this.surfaceParticles.renderingGroupId = 3;
-                    //console.log(sceneState.getActiveObject());
+                    //this.surfaceParticles.renderingGroupId = 3;
                 }
             } else {
                 // Make texture invisible
@@ -103,7 +110,9 @@ export class Star {
                 this.surfaceParticles.stop();
                 this.flareParticles.stop();
                 this.coronaParticles.stop();
-                this.glowLayer.isEnabled = false;
+                if (this.glowLayer) {
+                    this.glowLayer.isEnabled = false;
+                }
             }
         });
     }

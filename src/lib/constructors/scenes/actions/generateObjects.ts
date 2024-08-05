@@ -46,7 +46,7 @@ function generateClusterPosition(centerX: number, centerZ: number, clusterRadius
     };
 }
 
-export function generateObjects(scene: BABYLON.Scene, sceneConfig: SceneConfig) {
+export function generateObjects(scene: BABYLON.Scene, sceneConfig: SceneConfig, glowLayer: BABYLON.GlowLayer) {
     const numStars = sceneConfig.numStars;
     const galaxyRadius = 1000; // Maximum radius of the galaxy
     const galaxyThickness = 20; // Thickness of the galaxy in the vertical direction
@@ -110,6 +110,9 @@ export function generateObjects(scene: BABYLON.Scene, sceneConfig: SceneConfig) 
         
         // Set position of the star with thickness
         star.setPosition(x, verticalPosition, z);
+
+        // Set glow layer for the star
+        (star.prefab as Star)?.setGlowLayer(glowLayer);
 
         // Add star to sceneConfig
         sceneConfig.stars.push(star);

@@ -14,7 +14,7 @@ export function getStarLuminosity(type: string, diameter: number): number {
         case 'F':
             return getRandomNumberBetween(1, 1.25); // Example range for F-type stars
         case 'G':
-            return getRandomNumberBetween(0.5, 1); // Example range for G-type stars
+            return getRandomNumberBetween(0.75, 1); // Example range for G-type stars
         case 'K':
             return getRandomNumberBetween(0.4, 1); // Example range for K-type stars
         case 'M':

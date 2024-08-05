@@ -2,7 +2,7 @@ import * as BABYLON from 'babylonjs';
 import Camera from '@/lib/constructors/cameras/Camera';
 import { SceneConfig } from '@/lib/constructors/scenes/configs/SceneConfig';
 import { generateObjects } from '@/lib/constructors/scenes/actions/generateObjects';
-import { UIConstructor } from '@/lib/constructors/ui/ui'
+import { UIConstructor } from '@/lib/constructors/ui/ui';
 import { clickEvent } from '@/lib/constructors/scenes/actions/clickEvent';
 
 const sceneConfig: SceneConfig = {
@@ -16,6 +16,7 @@ export default class Scene {
     private config: SceneConfig;
     private scene: BABYLON.Scene;
     private camera: Camera;
+    private glowLayer: BABYLON.GlowLayer; // Add glow layer property
 
     constructor(engine: BABYLON.Engine, canvas: HTMLCanvasElement, config?: SceneConfig) {
         this.config = { ...sceneConfig, ...config };
@@ -25,15 +26,18 @@ export default class Scene {
         const backgroundColor = new BABYLON.Color4(0, 0, 0, 1);
         this.camera = new Camera(this.scene, canvas, "Main Camera", backgroundColor);
 
+        // Create the glow layer and add it to the scene
+        this.glowLayer = new BABYLON.GlowLayer("glow", this.scene);
+        this.glowLayer.intensity = 1.25; // Adjust intensity for performance
+
         // Create multiple stars at random positions
-        generateObjects(this.scene, this.config);
+        generateObjects(this.scene, this.config, this.glowLayer); // Pass glowLayer to generateObjects
 
         // Set up click event listener
         clickEvent(this, this.camera); // Pass `this` (the current scene instance)
         
         // Set up User Interface
         const uiConstructor = new UIConstructor('ui-container');
-
     }
 
     getScene(): BABYLON.Scene {
