@@ -17,9 +17,9 @@ export class FTypeCoronaParticles {
         this.particleSystem.emitter = mesh;
         this.particleSystem.particleEmitterType = emitter;
 
-        this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 0.9, 0.07, getRandomNumberBetween(0.01, 0.03)));
-        this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.01, 0.03)));
-        this.particleSystem.addColorGradient(1.0, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.01, 0.03)));
+        this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 0.9, 0.07, getRandomNumberBetween(0.01, 0.015)));
+        this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.01, 0.015)));
+        this.particleSystem.addColorGradient(1.0, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.01, 0.015)));
 
         this.particleSystem.minScaleX = getRandomNumberBetween(0.3, 15);
         this.particleSystem.minScaleY = getRandomNumberBetween(3, 50);

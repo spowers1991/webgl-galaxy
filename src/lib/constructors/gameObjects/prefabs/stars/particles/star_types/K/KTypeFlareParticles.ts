@@ -6,7 +6,7 @@ export class KTypeFlareParticles {
     public particleSystem: BABYLON.ParticleSystem;
 
     constructor(scene: BABYLON.Scene, mesh: BABYLON.Mesh, diameter: number) {
-        this.particleSystem = new BABYLON.ParticleSystem("flareParticles", 10, scene);
+        this.particleSystem = new BABYLON.ParticleSystem("flareParticles", 5, scene);
 
         this.particleSystem.particleTexture = new BABYLON.Texture(sunFlareTexture, scene);
         this.particleSystem.preWarmStepOffset = 10;
@@ -21,12 +21,12 @@ export class KTypeFlareParticles {
         this.particleSystem.particleEmitterType = sunEmitter;
 
         this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 1, 0.5, 0.25));
-        this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(0.3773, 0.0930, 0.0266, 0.15));
+        this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(0.3773, 0.0930, 0.0266, 0.65));
 
-        this.particleSystem.minScaleX = diameter * getRandomNumberBetween(0.8, 2.5);
-        this.particleSystem.minScaleY = diameter * getRandomNumberBetween(0.8, 2.5);
-        this.particleSystem.maxScaleX = diameter * getRandomNumberBetween(0.8, 2.5);
-        this.particleSystem.maxScaleY = diameter * getRandomNumberBetween(0.8, 2.5);
+        this.particleSystem.minScaleX = diameter * getRandomNumberBetween(0.5, 1.5);
+        this.particleSystem.minScaleY = diameter * getRandomNumberBetween(0.5, 1.5);
+        this.particleSystem.maxScaleX = diameter * getRandomNumberBetween(0.5, 1.5);
+        this.particleSystem.maxScaleY = diameter * getRandomNumberBetween(0.5, 1.5);
 
         this.particleSystem.minLifeTime = 30.0;
         this.particleSystem.maxLifeTime = 60.0;

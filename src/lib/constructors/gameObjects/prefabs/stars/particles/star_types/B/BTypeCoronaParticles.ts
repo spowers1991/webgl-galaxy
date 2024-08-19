@@ -6,7 +6,7 @@ export class BTypeCoronaParticles {
     public particleSystem: BABYLON.ParticleSystem;
 
     constructor(scene: BABYLON.Scene, mesh: BABYLON.Mesh, emitter: BABYLON.IParticleEmitterType, diameter: number) {
-        this.particleSystem = new BABYLON.ParticleSystem("coronaParticles", 100, scene);
+        this.particleSystem = new BABYLON.ParticleSystem("coronaParticles", 20, scene);
 
         this.particleSystem.particleTexture = new BABYLON.Texture(starTexture, scene);
         this.particleSystem.preWarmStepOffset = 10;
@@ -17,17 +17,17 @@ export class BTypeCoronaParticles {
         this.particleSystem.emitter = mesh;
         this.particleSystem.particleEmitterType = emitter;
 
-        this.particleSystem.addColorGradient(0, new BABYLON.Color4(255, 255, 255, 0.1));
-        this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(0.7, 0.7, 1, 0.05));
-        this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(0.7, 0.7, 1, 0.05));
+        this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.7, 0.7, 1, 0.015));
+        this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(0.7, 0.7, 1, 0.002));
+        this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(255, 255, 255, 0.01));
 
-        this.particleSystem.minScaleX = diameter * getRandomNumberBetween(0.1, 2.25);
-        this.particleSystem.minScaleY = diameter * getRandomNumberBetween(0.1, 2.25);
-        this.particleSystem.maxScaleX = diameter * getRandomNumberBetween(0.1, 2.25);
-        this.particleSystem.maxScaleY = diameter * getRandomNumberBetween(0.1, 2.25);
+        this.particleSystem.minScaleX = getRandomNumberBetween(1.5, 3.5);
+        this.particleSystem.minScaleY = getRandomNumberBetween(1, 40);
+        this.particleSystem.maxScaleX = getRandomNumberBetween(1.5, 3.5);
+        this.particleSystem.maxScaleY = getRandomNumberBetween(1, 40);
 
         this.particleSystem.minLifeTime = 10.0;
-        this.particleSystem.maxLifeTime = 20.0;
+        this.particleSystem.maxLifeTime = 60.0;
 
         this.particleSystem.emitRate = 300;
 

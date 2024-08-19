@@ -6,7 +6,7 @@ export class ATypeSurfaceParticles {
     public particleSystem: BABYLON.ParticleSystem;
 
     constructor(scene: BABYLON.Scene, mesh: BABYLON.Mesh, diameter: number) {
-        this.particleSystem = new BABYLON.ParticleSystem("surfaceParticles", 500, scene);
+        this.particleSystem = new BABYLON.ParticleSystem("surfaceParticles", 100, scene);
 
         this.particleSystem.particleTexture = new BABYLON.Texture(sunSurfaceTexture, scene);
         this.particleSystem.preWarmStepOffset = 10;
@@ -15,10 +15,15 @@ export class ATypeSurfaceParticles {
         this.particleSystem.maxInitialRotation = 2 * Math.PI;
 
         const sunEmitter = new BABYLON.SphereParticleEmitter();
-        sunEmitter.radius = 1;
+        sunEmitter.radius = 2;
         sunEmitter.radiusRange = 0;
         this.particleSystem.emitter = mesh;
         this.particleSystem.particleEmitterType = sunEmitter;
+
+        this.particleSystem.minScaleX = diameter 
+                this.particleSystem.minScaleY =  diameter 
+                this.particleSystem.maxScaleX = diameter * 2
+                this.particleSystem.maxScaleY =  diameter * 2
 
         this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.7, 0.7, 1, 0.0025,));
         this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(1, 1, 0.5, 0.0035));

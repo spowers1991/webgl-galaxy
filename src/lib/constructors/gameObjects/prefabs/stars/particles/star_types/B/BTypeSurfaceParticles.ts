@@ -5,7 +5,7 @@ export class BTypeSurfaceParticles {
     public particleSystem: BABYLON.ParticleSystem;
 
     constructor(scene: BABYLON.Scene, mesh: BABYLON.Mesh, diameter: number) {
-        this.particleSystem = new BABYLON.ParticleSystem("surfaceParticles", 1500, scene);
+        this.particleSystem = new BABYLON.ParticleSystem("surfaceParticles", 0, scene);
 
         this.particleSystem.particleTexture = new BABYLON.Texture(sunSurfaceTexture, scene);
         this.particleSystem.preWarmStepOffset = 10;

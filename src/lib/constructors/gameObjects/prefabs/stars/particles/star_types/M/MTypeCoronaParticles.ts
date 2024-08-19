@@ -32,7 +32,7 @@ export class MTypeCoronaParticles {
                 this.particleSystem.minScaleY = getRandomNumberBetween(12, 150);
                 this.particleSystem.maxScaleX = getRandomNumberBetween(12, 150);
                 this.particleSystem.maxScaleY = getRandomNumberBetween(12, 150);
-                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2, getRandomNumberBetween(0.005, 0.0095)));
+                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2, getRandomNumberBetween(0.005, 0.0055)));
                 this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.0009, 0.0015))); 
         }
         else {

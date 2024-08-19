@@ -7,7 +7,7 @@ export class UIConstructor {
     
     constructor(uiElementId: string) {
         this.uiElement = document.getElementById(uiElementId) as HTMLElement;
-        console.log(this.uiElement);
+
         if (!this.uiElement) {
             console.error(`UI element with ID ${uiElementId} not found.`);
             return;
@@ -26,7 +26,6 @@ export class UIConstructor {
                 <p id="star-luminosity">Luminosity: </p>
             </div>
         `;
-        console.log('Initial UI setup done');
 
         // Observe global state for updates
         this.observeGlobalState();

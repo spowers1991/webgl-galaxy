@@ -47,8 +47,8 @@ export class MTypeSurfaceParticles {
                 this.particleSystem.minScaleY =  diameter 
                 this.particleSystem.maxScaleX = diameter + 0.1
                 this.particleSystem.maxScaleY =  diameter + 0.1
-                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2,  getRandomNumberBetween(0.005, 0.01)));
-                this.particleSystem.addColorGradient(0.25, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.005, 0.01))); 
+                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2,  getRandomNumberBetween(0.001, 0.005)));
+                this.particleSystem.addColorGradient(0.25, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.001, 0.005))); 
         }
 
         this.particleSystem.minLifeTime = 8.0;

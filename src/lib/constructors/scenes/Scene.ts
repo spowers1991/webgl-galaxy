@@ -16,7 +16,7 @@ export default class Scene {
     private config: SceneConfig;
     private scene: BABYLON.Scene;
     private camera: Camera;
-    private glowLayer: BABYLON.GlowLayer; // Add glow layer property
+    private glowLayer: BABYLON.GlowLayer; 
 
     constructor(engine: BABYLON.Engine, canvas: HTMLCanvasElement, config?: SceneConfig) {
         this.config = { ...sceneConfig, ...config };
@@ -31,7 +31,7 @@ export default class Scene {
         this.glowLayer.intensity = 1.25; // Adjust intensity for performance
 
         // Create multiple stars at random positions
-        generateObjects(this.scene, this.config, this.glowLayer); // Pass glowLayer to generateObjects
+        generateObjects(this.scene, this.config, this.glowLayer);
 
         // Set up click event listener
         clickEvent(this, this.camera); // Pass `this` (the current scene instance)

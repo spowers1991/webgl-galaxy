@@ -3,7 +3,7 @@ import sceneState from '@/lib/constructors/scenes/SceneState';
 import { autorun } from 'mobx';
 import { StarConfig } from '@/lib/constructors/gameObjects/prefabs/stars/configs/starConfig';
 import { SceneConfig } from '@/lib/constructors/scenes/configs/SceneConfig';
-import lava from '@/assets/lava.jpg';
+import SunSurfaceTexture from '@/assets/T_SunSurfaceTexture.jpg';
 
 export class Star {
     public mesh: BABYLON.Mesh;
@@ -14,7 +14,7 @@ export class Star {
     public starConfig: StarConfig;
     public sceneConfig: SceneConfig;
     private glowLayer: BABYLON.GlowLayer; // Reference to the shared glow layer
-    private lavaTexture: BABYLON.Texture | null;
+    private sunSurfaceTexture: BABYLON.Texture | null;
 
     constructor(scene: BABYLON.Scene, sceneConfig: SceneConfig, starConfig: StarConfig) {
         this.starConfig = starConfig; // Store the star config
@@ -29,12 +29,12 @@ export class Star {
         this.material.emissiveColor = this.starConfig.color; // Base color
         this.material.emissiveColor.scaleInPlace(this.starConfig.luminosity); // Scale the emissive color for intensity
 
-        // Load and store the lava texture
-        this.lavaTexture = (this.starConfig.type === 'K' || this.starConfig.type === 'M') ? new BABYLON.Texture(lava, scene) : null;
+        // Load and store the SunSurfaceTexture texture
+        this.sunSurfaceTexture = (this.starConfig.type === 'K' || this.starConfig.type === 'M') ? new BABYLON.Texture(SunSurfaceTexture, scene) : null;
 
         // Add a texture to the material if applicable
-        if (this.lavaTexture) {
-            this.material.diffuseTexture = this.lavaTexture;
+        if (this.sunSurfaceTexture) {
+            this.material.diffuseTexture = this.sunSurfaceTexture;
             this.material.specularColor = new BABYLON.Color3(0, 0, 0);
         }
 
@@ -82,8 +82,8 @@ export class Star {
             
             if (objectInView) {
                 // Make texture visible
-                if (this.lavaTexture) {
-                    this.material.diffuseTexture = this.lavaTexture;
+                if (this.sunSurfaceTexture) {
+                    this.material.diffuseTexture = this.sunSurfaceTexture;
                 }
 
                 // Start particles if the condition is met
@@ -91,13 +91,13 @@ export class Star {
                 this.flareParticles.start();
                 this.coronaParticles.start();
                 if (this.glowLayer) {
-                    this.glowLayer.isEnabled = true;
+                    //this.glowLayer.isEnabled = true;
                 }
 
                 // Find current Star and set the entire Object to setActiveObject
                 if (sceneState.getActiveObject().pickedMesh === this.mesh) {
                     sceneState.setActiveObject(this);
-                    console.log(this);
+                    //console.log(this);
                     this.flareParticles.renderingGroupId = 1;
                     this.coronaParticles.renderingGroupId = 1;
                     //this.surfaceParticles.renderingGroupId = 3;
@@ -111,7 +111,7 @@ export class Star {
                 this.flareParticles.stop();
                 this.coronaParticles.stop();
                 if (this.glowLayer) {
-                    this.glowLayer.isEnabled = false;
+                    //this.glowLayer.isEnabled = false;
                 }
             }
         });
