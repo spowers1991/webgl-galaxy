@@ -6,7 +6,7 @@ export function getStarLuminosity(type: string, diameter: number): number {
 
     switch(type) {
         case 'O':
-            return getRandomNumberBetween(3, 5); // Example range for O-type stars
+            return getRandomNumberBetween(3, 15); // Example range for O-type stars
         case 'B':
             return getRandomNumberBetween(1.5, 3.25); // Example range for B-type stars
         case 'A':
@@ -16,7 +16,7 @@ export function getStarLuminosity(type: string, diameter: number): number {
         case 'G':
             return getRandomNumberBetween(0.75, 1); // Example range for G-type stars
         case 'K':
-            return getRandomNumberBetween(0.2, 1); // Example range for K-type stars
+            return getRandomNumberBetween(0.6, 2); // Example range for K-type stars
         case 'M':
             if(diameter > 1) {
                 return getRandomNumberBetween(0.5, 1); // Example range for M-type stars

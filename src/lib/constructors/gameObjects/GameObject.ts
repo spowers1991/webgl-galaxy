@@ -1,65 +1,65 @@
 import * as BABYLON from 'babylonjs';
 import { setPosition } from './actions/setPosition';
-import { setMesh } from './actions/setMesh'; // Import the function
+import { setMesh } from './actions/setMesh'; 
 import { setMaterial } from './actions/setMaterial';
-import { setTexture } from './actions/setTexture';
+import { setNormalTexture } from './actions/setNormalTexture';
+import { setDiffuseTexture } from './actions/setDiffuseTexture';
 import { setEmissiveColor } from './actions/setEmissiveColor';
-import { setPrefab } from './actions/setPrefab'; // Import the function
+import { setSpecularColor } from './actions/setSpecularColor';
 
 export default class GameObject {
     public name: string;
     public scene: BABYLON.Scene;
     public mesh: BABYLON.Mesh | null;
-    public prefab: any | null;
+    public material: BABYLON.StandardMaterial  | null;
+    public normalTexture: BABYLON.Texture | null;
+    public diffuseTexture: BABYLON.Texture | null;
+    public specularColor: BABYLON.Color3 | null;
     public gameObjectConfig: any;
 
     constructor(
         name: string,
         scene: BABYLON.Scene,
-        PrefabClass?: { new(scene: BABYLON.Scene, sceneConfig: any, gameObjectConfig: any): any },
-        sceneConfig?: any,
         gameObjectConfig?: any
     ) {
         this.name = name;
         this.scene = scene;
         this.mesh = null;
-        this.prefab = null;
+        this.material = null;
+        this.normalTexture = null;
+        this.diffuseTexture = null;
+        this.specularColor = null;
         this.gameObjectConfig = gameObjectConfig;
-
-        if (PrefabClass && sceneConfig && gameObjectConfig) {
-            this.setPrefab(PrefabClass, sceneConfig, gameObjectConfig);
-        }
     }
 
     setPosition(x: number, y: number, z: number) {
-        if (this.mesh) {
-            setPosition(this.mesh, x, y, z, this.name);
-        }
+        setPosition(this.mesh, x, y, z, this.name);
     }
 
     setMesh(mesh: BABYLON.Mesh) {
-        this.mesh = setMesh(this.name, mesh); // Use the imported function
+        this.mesh = setMesh(mesh); 
     }
 
-    setMaterial(material: BABYLON.Material) {
-        if (this.mesh) {
-            setMaterial(this.mesh, material, this.name);
+    setMaterial(material: BABYLON.StandardMaterial) {
+        this.material = setMaterial( this.mesh, material, this.name);  
+    }
+
+    setNormalTexture(normalTexture: BABYLON.Texture) {
+        this.normalTexture = setNormalTexture(this.material, normalTexture, this.name);
+    }
+
+    setDiffuseTexture(diffuseTexture: BABYLON.Texture) {
+        if(this.normalTexture) {
+            this.diffuseTexture = setDiffuseTexture(this.material, diffuseTexture, this.name);
         }
     }
 
-    setTexture(textureUrl: string) {
-        if (this.mesh) {
-            setTexture(this.mesh, textureUrl, this.scene, this.name);
-        }
+    setSpecularColor(specularColor: BABYLON.Color3) {
+        this.specularColor = setSpecularColor(this.material, specularColor, this.name);
     }
 
-    setEmissiveColor(color: BABYLON.Color3) {
-        if (this.mesh) {
-            setEmissiveColor(this.mesh, color, this.name);
-        }
+    setEmissiveColor(color: BABYLON.Color3, luminosity: number) {
+        setEmissiveColor(this.material, color, luminosity, this.name);
     }
 
-    setPrefab(PrefabClass: { new(scene: BABYLON.Scene, sceneConfig: any, gameObjectConfig: any): any }, sceneConfig: any, gameObjectConfig: any) {
-        setPrefab(this, PrefabClass, sceneConfig, gameObjectConfig); // Use the imported function
-    }
 }

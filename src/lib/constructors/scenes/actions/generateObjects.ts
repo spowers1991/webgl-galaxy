@@ -1,6 +1,5 @@
 import * as BABYLON from 'babylonjs';
-import { Star } from '@/lib/constructors/gameObjects/prefabs/stars/Star';
-import GameObject from '@/lib/constructors/gameObjects/GameObject';
+import Star from '@/lib/constructors/gameObjects/prefabs/stars/Star';
 import { SceneConfig } from '../configs/SceneConfig';
 import { StarConfig } from '../../gameObjects/prefabs/stars/configs/starConfig';
 import { getParticleSystems } from '@/lib/constructors/gameObjects/prefabs/stars/helpers/getStarParticles';
@@ -10,7 +9,7 @@ import { getStarLuminosity } from '@/lib/constructors/gameObjects/prefabs/stars/
 
 // Define star types and their weights
 const starTypes = [
-    { type: 'O', weight: 5 },  // Very rare
+//{ type: 'O', weight: 5 },  // Very rare
     { type: 'B', weight: 3 },
     { type: 'A', weight: 5 },
     { type: 'F', weight: 10 },
@@ -46,7 +45,7 @@ function generateClusterPosition(centerX: number, centerZ: number, clusterRadius
     };
 }
 
-export function generateObjects(scene: BABYLON.Scene, sceneConfig: SceneConfig, glowLayer: BABYLON.GlowLayer) {
+export function generateObjects(scene: BABYLON.Scene, sceneConfig: SceneConfig) {
     const numStars = sceneConfig.numStars;
     const galaxyRadius = 1000; // Maximum radius of the galaxy
     const galaxyThickness = 20; // Thickness of the galaxy in the vertical direction
@@ -106,13 +105,10 @@ export function generateObjects(scene: BABYLON.Scene, sceneConfig: SceneConfig, 
         };
 
         // Create star game object
-        const star = new GameObject("Star " + i, scene, Star, sceneConfig, starConfig);
+        const star = new Star("Star " + i, scene, starConfig);
         
         // Set position of the star with thickness
         star.setPosition(x, verticalPosition, z);
-
-        // Set glow layer for the star
-        (star.prefab as Star)?.setGlowLayer(glowLayer);
 
         // Add star to sceneConfig
         sceneConfig.stars.push(star);

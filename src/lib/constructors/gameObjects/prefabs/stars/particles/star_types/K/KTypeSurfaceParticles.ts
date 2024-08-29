@@ -10,9 +10,9 @@ export class KTypeSurfaceParticles {
     constructor(scene: BABYLON.Scene, mesh: BABYLON.Mesh, diameter: number) {
         
         if(this.type = "giant"){
-            this.particleCount = 2000
-        } else {
             this.particleCount = 1500
+        } else {
+            this.particleCount = 500
         }
 
         this.particleSystem = new BABYLON.ParticleSystem("surfaceParticles", this.particleCount, scene);
@@ -24,7 +24,7 @@ export class KTypeSurfaceParticles {
         this.particleSystem.maxInitialRotation = 2 * Math.PI;
 
         const sunEmitter = new BABYLON.SphereParticleEmitter();
-        sunEmitter.radius = 1;
+        sunEmitter.radius = 0.9;
         sunEmitter.radiusRange = 0;
         this.particleSystem.emitter = mesh;
         this.particleSystem.particleEmitterType = sunEmitter;
@@ -35,8 +35,7 @@ export class KTypeSurfaceParticles {
                 this.particleSystem.minScaleY =  diameter 
                 this.particleSystem.maxScaleX = diameter 
                 this.particleSystem.maxScaleY =  diameter 
-                this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 0.6, 0.2, getRandomNumberBetween(0.005, 0.01)));
-                this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.005, 0.01)));
+                this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.05, 0.075)));
         }
         else {
             this.type = "dwarf"

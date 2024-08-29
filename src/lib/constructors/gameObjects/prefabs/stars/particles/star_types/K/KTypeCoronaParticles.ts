@@ -1,5 +1,6 @@
 import * as BABYLON from 'babylonjs';
-import starTexture from '@/assets/T_Star.png';
+import starAuraTextureGiant from '@/assets/T_Aura_Generic.png';
+import starAuraTextureDwarf from '@/assets/T_SunSurface.png';
 import { getRandomNumberBetween } from '@/utils/getRandomNumberBetween'
 
 export class KTypeCoronaParticles {
@@ -9,15 +10,8 @@ export class KTypeCoronaParticles {
 
     constructor(scene: BABYLON.Scene, mesh: BABYLON.Mesh, emitter: BABYLON.IParticleEmitterType, diameter: number) {
 
-        if(this.type = "giant"){
-            this.particleCount = 100
-        } else {
-            this.particleCount = 50
-        }
+        this.particleSystem = new BABYLON.ParticleSystem("coronaParticles", 5, scene);
 
-        this.particleSystem = new BABYLON.ParticleSystem("coronaParticles", this.particleCount, scene);
-
-        this.particleSystem.particleTexture = new BABYLON.Texture(starTexture, scene);
         this.particleSystem.preWarmStepOffset = 10;
         this.particleSystem.preWarmCycles = 1000;
         this.particleSystem.minInitialRotation = -2 * Math.PI;
@@ -28,23 +22,25 @@ export class KTypeCoronaParticles {
 
         if(diameter > 2) {
             this.type = "giant"
-                this.particleSystem.minScaleX = diameter * getRandomNumberBetween(1,2)
-                this.particleSystem.minScaleY = diameter * getRandomNumberBetween(1,2)
-                this.particleSystem.maxScaleX = diameter * getRandomNumberBetween(1,2)
-                this.particleSystem.maxScaleY = diameter * getRandomNumberBetween(1,2)
-                this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 1, 0.5,  getRandomNumberBetween(0.01, 0.01)));
-                this.particleSystem.addColorGradient(0.25, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.01, 0.01)));
-                this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.01, 0.01)));
+                this.particleSystem.particleTexture = new BABYLON.Texture(starAuraTextureGiant, scene);
+                this.particleSystem.minScaleX = diameter * getRandomNumberBetween(5, 10)
+                this.particleSystem.minScaleY = diameter * getRandomNumberBetween(5, 10)
+                this.particleSystem.maxScaleX = diameter * getRandomNumberBetween(5, 10)
+                this.particleSystem.maxScaleY = diameter * getRandomNumberBetween(5, 10)
+                this.particleSystem.addColorGradient(0.0, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.1, 0.75)));
+                this.particleSystem.addColorGradient(0.25, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.1, 0.75)));
+                this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(1, 1, 0.5,  getRandomNumberBetween(0.1, 0.75)));
         }
         else {
             this.type = "dwarf"
+                this.particleSystem.particleTexture = new BABYLON.Texture(starAuraTextureDwarf, scene);
                 this.particleSystem.minScaleX = getRandomNumberBetween(0.1, 2);
                 this.particleSystem.minScaleY = getRandomNumberBetween(0.1, 2);
                 this.particleSystem.maxScaleX = getRandomNumberBetween(0.1, 2);
                 this.particleSystem.maxScaleY = getRandomNumberBetween(0.1, 2);
                 this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 1, 0.5, getRandomNumberBetween(0.009, 0.01)));
-                this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.009, 0.003)));
-                this.particleSystem.addColorGradient(1.0, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.009, 0.01)));
+                this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.1, 0.03)));
+                this.particleSystem.addColorGradient(1.0, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.01, 0.02)));
         }
 
         this.particleSystem.minLifeTime = 100.0;

@@ -9,10 +9,10 @@ export class MTypeSurfaceParticles {
 
     constructor(scene: BABYLON.Scene, mesh: BABYLON.Mesh, diameter: number) {
         
-        if(this.type = "giant"){
+        if(diameter > 2) {
             this.particleCount = 1500
         } else {
-            this.particleCount = 200
+            this.particleCount = 400
         }
 
         this.particleSystem = new BABYLON.ParticleSystem("surfaceParticles", this.particleCount, scene);
@@ -37,18 +37,17 @@ export class MTypeSurfaceParticles {
                 this.particleSystem.minScaleY =  diameter 
                 this.particleSystem.maxScaleX = diameter + 0.11
                 this.particleSystem.maxScaleY =  diameter + 0.1
-                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2, getRandomNumberBetween(0.05, 0.01)));
-                this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.05, 0.01))); 
+                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2, getRandomNumberBetween(0.01, 0.05)));
+                this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.01, 0.05))); 
         }
         else {
             this.type = "dwarf"
                 //sunEmitter.radius = 0.51;
                 this.particleSystem.minScaleX = diameter 
                 this.particleSystem.minScaleY =  diameter 
-                this.particleSystem.maxScaleX = diameter + 0.1
-                this.particleSystem.maxScaleY =  diameter + 0.1
-                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2,  getRandomNumberBetween(0.001, 0.005)));
-                this.particleSystem.addColorGradient(0.25, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.001, 0.005))); 
+                this.particleSystem.maxScaleX = diameter + 0.075
+                this.particleSystem.maxScaleY =  diameter + 0.075
+                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2,  getRandomNumberBetween(0.001, 0.025)));
         }
 
         this.particleSystem.minLifeTime = 8.0;

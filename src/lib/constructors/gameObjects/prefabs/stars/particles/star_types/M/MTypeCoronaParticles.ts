@@ -1,5 +1,6 @@
 import * as BABYLON from 'babylonjs';
-import starTexture from '@/assets/T_Star.png';
+import starTexture from '@/assets/T_SunSurface.png';
+import starTextureRed from '@/assets/T_Aura_Generic.png';
 import { getRandomNumberBetween } from '@/utils/getRandomNumberBetween'
 
 export class MTypeCoronaParticles {
@@ -9,15 +10,8 @@ export class MTypeCoronaParticles {
 
     constructor(scene: BABYLON.Scene, mesh: BABYLON.Mesh, emitter: BABYLON.IParticleEmitterType, diameter: number) {
 
-        if(this.type = "giant"){
-            this.particleCount = 20
-        } else {
-            this.particleCount = 10
-        }
+        this.particleSystem = new BABYLON.ParticleSystem("coronaParticles", 20, scene);
 
-        this.particleSystem = new BABYLON.ParticleSystem("coronaParticles", this.particleCount, scene);
-
-        this.particleSystem.particleTexture = new BABYLON.Texture(starTexture, scene);
         this.particleSystem.preWarmStepOffset = 10;
         this.particleSystem.preWarmCycles = 100;
         this.particleSystem.minInitialRotation = -2 * Math.PI;
@@ -28,21 +22,23 @@ export class MTypeCoronaParticles {
 
         if(diameter > 2) {
             this.type = "giant"
-                this.particleSystem.minScaleX = getRandomNumberBetween(12, 150);
-                this.particleSystem.minScaleY = getRandomNumberBetween(12, 150);
-                this.particleSystem.maxScaleX = getRandomNumberBetween(12, 150);
-                this.particleSystem.maxScaleY = getRandomNumberBetween(12, 150);
-                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2, getRandomNumberBetween(0.005, 0.0055)));
-                this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.0009, 0.0015))); 
+                this.particleSystem.particleTexture = new BABYLON.Texture(starTextureRed, scene);
+                this.particleSystem.minScaleX = getRandomNumberBetween(12, 80);
+                this.particleSystem.minScaleY = getRandomNumberBetween(12, 80);
+                this.particleSystem.maxScaleX = getRandomNumberBetween(12, 80);
+                this.particleSystem.maxScaleY = getRandomNumberBetween(12, 80);
+                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2, getRandomNumberBetween(0.1, 0.25)));
+                this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.1, 0.25))); 
         }
         else {
             this.type = "dwarf"
-                this.particleSystem.minScaleX = getRandomNumberBetween(0.1, 2);
-                this.particleSystem.minScaleY = getRandomNumberBetween(0.1, 2);
-                this.particleSystem.maxScaleX = getRandomNumberBetween(0.1, 2);
-                this.particleSystem.maxScaleY = getRandomNumberBetween(0.1, 2);
-                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2,  getRandomNumberBetween(0.0001, 0.0002)));
-                this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.0001, 0.0002))); 
+                this.particleSystem.particleTexture = new BABYLON.Texture(starTextureRed, scene);
+                this.particleSystem.minScaleX = getRandomNumberBetween(3, 6);
+                this.particleSystem.minScaleY = getRandomNumberBetween(3, 6);
+                this.particleSystem.maxScaleX = getRandomNumberBetween(3, 6);
+                this.particleSystem.maxScaleY = getRandomNumberBetween(3, 6);
+                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2,  getRandomNumberBetween(0.1, 0.2)));
+                this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.1, 0.2))); 
         }
         
         this.particleSystem.minLifeTime = 30.0;

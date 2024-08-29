@@ -1,5 +1,6 @@
 import { Vector3 } from 'babylonjs';
 import GameObject from '@/lib/constructors/gameObjects/GameObject';
+import Star from '@/lib/constructors/gameObjects/prefabs/stars/Star';
 
 interface Position {
     x: number;
@@ -7,7 +8,7 @@ interface Position {
     z: number;
 }
 
-export function rotateAroundCenter(objects: GameObject[], initialPositions: Position[], angle: number) {
+export function rotateAroundCenter(objects: Star[], initialPositions: Position[], angle: number) {
     if (!initialPositions || initialPositions.length !== objects.length) {
         console.error("Initial positions array is not properly set or does not match the objects array length.");
         return;
@@ -16,7 +17,7 @@ export function rotateAroundCenter(objects: GameObject[], initialPositions: Posi
     const center = new Vector3(0, 0, 0); // Assuming center of rotation is (0, 0, 0)
 
     for (let i = 0; i < objects.length; i++) {
-        const gameObject = objects[i];
+        const star = objects[i];
         const initialPosition = initialPositions[i];
 
         if (!initialPosition) {
@@ -41,15 +42,15 @@ export function rotateAroundCenter(objects: GameObject[], initialPositions: Posi
         const z = initialPosition.x * sinAngle + initialPosition.z * cosAngle;
 
         // Update the game object's position
-        gameObject.setPosition(x, initialPosition.y, z);
-        console.log(gameObject)
-        gameObject.prefab.surfaceParticles.maxLifeTime = 0.001;
-        gameObject.prefab.flareParticles.maxLifeTime = 0.001;
-        gameObject.prefab.surfaceParticles.preWarmCycles = 0;
-        gameObject.prefab.coronaParticles.preWarmCycles = 0;
-        gameObject.prefab.coronaParticles.maxLifeTime = 0.001;
-        gameObject.prefab.coronaParticles.stop();
-        gameObject.prefab.surfaceParticles.stop();
-        gameObject.prefab.flareParticles.stop();
+        star.setPosition(x, initialPosition.y, z);
+        console.log(star)
+        star.surfaceParticles.maxLifeTime = 0.001;
+        star.flareParticles.maxLifeTime = 0.001;
+        star.surfaceParticles.preWarmCycles = 0;
+        star.coronaParticles.preWarmCycles = 0;
+        star.coronaParticles.maxLifeTime = 0.001;
+        star.coronaParticles.stop();
+        star.surfaceParticles.stop();
+        star.flareParticles.stop();
     }
 }
