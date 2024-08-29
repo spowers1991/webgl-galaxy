@@ -12,7 +12,7 @@ export class MTypeSurfaceParticles {
         if(diameter > 2) {
             this.particleCount = 1500
         } else {
-            this.particleCount = 400
+            this.particleCount = 1400
         }
 
         this.particleSystem = new BABYLON.ParticleSystem("surfaceParticles", this.particleCount, scene);
@@ -45,9 +45,9 @@ export class MTypeSurfaceParticles {
                 //sunEmitter.radius = 0.51;
                 this.particleSystem.minScaleX = diameter 
                 this.particleSystem.minScaleY =  diameter 
-                this.particleSystem.maxScaleX = diameter + 0.075
-                this.particleSystem.maxScaleY =  diameter + 0.075
-                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2,  getRandomNumberBetween(0.001, 0.025)));
+                this.particleSystem.maxScaleX = diameter + 0.065
+                this.particleSystem.maxScaleY =  diameter + 0.065
+                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2,  getRandomNumberBetween(0.001, 0.005)));
         }
 
         this.particleSystem.minLifeTime = 8.0;

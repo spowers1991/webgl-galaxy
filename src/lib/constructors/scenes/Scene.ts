@@ -8,7 +8,7 @@ import { clickEvent } from '@/lib/constructors/scenes/actions/clickEvent';
 const sceneConfig: SceneConfig = {
     numStars: 500,
     stars: [],
-    maxDiameter: 300,
+    maxDiameter: 500,
     densityFactor: 0.5, 
 };
 

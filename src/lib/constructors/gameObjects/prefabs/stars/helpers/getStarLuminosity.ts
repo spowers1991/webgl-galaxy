@@ -18,10 +18,10 @@ export function getStarLuminosity(type: string, diameter: number): number {
         case 'K':
             return getRandomNumberBetween(0.6, 2); // Example range for K-type stars
         case 'M':
-            if(diameter > 1) {
+            if(diameter > 2) {
                 return getRandomNumberBetween(0.5, 1); // Example range for M-type stars
             } else {
-                return getRandomNumberBetween(0.1, 0.25); // Example range for M-type stars
+                return getRandomNumberBetween(0.25, 0.7); // Example range for M-type stars
             }
         default:
             throw new Error(`Unsupported star type: ${type}`);

@@ -9,7 +9,7 @@ import { getStarLuminosity } from '@/lib/constructors/gameObjects/prefabs/stars/
 
 // Define star types and their weights
 const starTypes = [
-//{ type: 'O', weight: 5 },  // Very rare
+    { type: 'O', weight: 5 },  // Very rare
     { type: 'B', weight: 3 },
     { type: 'A', weight: 5 },
     { type: 'F', weight: 10 },
@@ -47,14 +47,14 @@ function generateClusterPosition(centerX: number, centerZ: number, clusterRadius
 
 export function generateObjects(scene: BABYLON.Scene, sceneConfig: SceneConfig) {
     const numStars = sceneConfig.numStars;
-    const galaxyRadius = 1000; // Maximum radius of the galaxy
+    const galaxyRadius = 1500; // Maximum radius of the galaxy
     const galaxyThickness = 20; // Thickness of the galaxy in the vertical direction
     const numArms = 4; // Number of spiral arms
     const armSpacing = 2 * Math.PI / numArms; // Angle between spiral arms
     const spiralFactor = 5; // Factor to control the tightness of the spirals
 
     const oTypeClusters = []; // To store cluster centers for O-type stars
-    const clusterRadius = 50; // Radius for O-type star clusters
+    const clusterRadius = 100; // Radius for O-type star clusters
 
     for (let i = 0; i < numStars; i++) {
         // Calculate polar coordinates
