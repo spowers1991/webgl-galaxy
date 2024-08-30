@@ -1,5 +1,5 @@
 import * as BABYLON from 'babylonjs';
-import starTexture from '@/assets/T_Star.png';
+import starTexture from '@/assets/T_Aura_Generic.png';
 import { getRandomNumberBetween } from '@/utils/getRandomNumberBetween'
 
 export class FTypeCoronaParticles {
@@ -17,14 +17,12 @@ export class FTypeCoronaParticles {
         this.particleSystem.emitter = mesh;
         this.particleSystem.particleEmitterType = emitter;
 
-        this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 0.9, 0.07, getRandomNumberBetween(0.01, 0.015)));
-        this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.01, 0.015)));
-        this.particleSystem.addColorGradient(1.0, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.01, 0.015)));
+        this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 1, 1, getRandomNumberBetween(0.005, 0.1)))
 
-        this.particleSystem.minScaleX = getRandomNumberBetween(3, 6);
-        this.particleSystem.minScaleY = getRandomNumberBetween(5, 10);
-        this.particleSystem.maxScaleX = getRandomNumberBetween(3, 6);
-        this.particleSystem.maxScaleY = getRandomNumberBetween(5, 10);
+        this.particleSystem.minScaleX = getRandomNumberBetween(7, 15);
+        this.particleSystem.minScaleY = getRandomNumberBetween(7, 30);
+        this.particleSystem.maxScaleX = getRandomNumberBetween(7, 15);
+        this.particleSystem.maxScaleY = getRandomNumberBetween(7, 31);
 
 
         this.particleSystem.minLifeTime = 30.0;

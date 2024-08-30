@@ -6,7 +6,7 @@ export class GTypeSurfaceParticles {
     public particleSystem: BABYLON.ParticleSystem;
 
     constructor(scene: BABYLON.Scene, mesh: BABYLON.Mesh, diameter: number) {
-        this.particleSystem = new BABYLON.ParticleSystem("surfaceParticles", 1000, scene);
+        this.particleSystem = new BABYLON.ParticleSystem("surfaceParticles", 400, scene);
 
         this.particleSystem.particleTexture = new BABYLON.Texture(sunSurfaceTexture, scene);
         this.particleSystem.preWarmStepOffset = 10;

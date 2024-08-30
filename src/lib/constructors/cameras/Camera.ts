@@ -1,15 +1,14 @@
 import * as BABYLON from 'babylonjs';
-import { setupCamera } from './actions/setupCamera';
-import { focusOnMesh } from './actions/focusOnMesh';  
-import { updateMaxZoomDistance } from './actions/updateMaxZoomDistance';  
 import sceneState from '@/lib/constructors/scenes/SceneState';
 import { autorun } from 'mobx';
+import { setupCamera } from './actions/setupCamera';
+import { focusOnMesh } from './actions/focusOnMesh';  
+import { updateCamera } from './actions/updateCamera';  
 
 class Camera {
     private properties: BABYLON.ArcRotateCamera;
 
     constructor(scene: BABYLON.Scene, canvas: HTMLCanvasElement, cameraName: string, backgroundColor: BABYLON.Color4) {
-
         // Setup initial configuration for the camera
         this.properties = setupCamera(scene, canvas, cameraName, backgroundColor);
 
@@ -18,8 +17,8 @@ class Camera {
     }
 
     // Object methods
-    focusOnMesh(mesh: BABYLON.AbstractMesh, distance?: number, duration: number = 1000, bleed: number = 500) {
-        focusOnMesh(this.properties, mesh, distance, duration, bleed);
+    focusOnMesh(mesh: BABYLON.AbstractMesh, distance?: number, duration: number = 1000) {
+        focusOnMesh(this.properties, mesh, distance, duration);
     }
 
     // Observable global state
@@ -27,10 +26,7 @@ class Camera {
         autorun(() => {
             const activeObject = sceneState.getActiveObject();
             try {
-                updateMaxZoomDistance(this.properties);
-                if (activeObject?.starConfig) {
-                    //console.log(activeObject);
-                }
+                updateCamera(this.properties, activeObject);
             } catch (error) {
                 console.error('Error updating max zoom distance:', error);
             }

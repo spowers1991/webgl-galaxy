@@ -24,21 +24,21 @@ export class MTypeSurfaceParticles {
         this.particleSystem.maxInitialRotation = 2 * Math.PI;
 
         const sunEmitter = new BABYLON.SphereParticleEmitter();
-        sunEmitter.radius = 1;
+        sunEmitter.radius = 0.93;
         sunEmitter.radiusRange = 0;
         this.particleSystem.emitter = mesh;
         this.particleSystem.particleEmitterType = sunEmitter;
 
         
 
-        if(diameter > 2) {
+        if(diameter > 1) {
             this.type = "giant"
                 this.particleSystem.minScaleX = diameter 
                 this.particleSystem.minScaleY =  diameter 
                 this.particleSystem.maxScaleX = diameter + 0.11
                 this.particleSystem.maxScaleY =  diameter + 0.1
-                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2, getRandomNumberBetween(0.01, 0.05)));
-                this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.01, 0.05))); 
+                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.01, 0.05))); 
+                this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.05, 0.1))); 
         }
         else {
             this.type = "dwarf"
@@ -47,7 +47,8 @@ export class MTypeSurfaceParticles {
                 this.particleSystem.minScaleY =  diameter 
                 this.particleSystem.maxScaleX = diameter + 0.065
                 this.particleSystem.maxScaleY =  diameter + 0.065
-                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2,  getRandomNumberBetween(0.001, 0.005)));
+                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.015, 0.002))); 
+                this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.015, 0.025))); 
         }
 
         this.particleSystem.minLifeTime = 8.0;

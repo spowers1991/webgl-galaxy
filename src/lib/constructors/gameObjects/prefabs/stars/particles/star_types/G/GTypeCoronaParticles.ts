@@ -8,7 +8,7 @@ export class GTypeCoronaParticles {
     public type: string;
 
     constructor(scene: BABYLON.Scene, mesh: BABYLON.Mesh, emitter: BABYLON.IParticleEmitterType, diameter: number) {
-        this.particleSystem = new BABYLON.ParticleSystem("coronaParticles", 100, scene);
+        this.particleSystem = new BABYLON.ParticleSystem("coronaParticles", 50, scene);
 
         this.particleSystem.particleTexture = new BABYLON.Texture(starTexture, scene);
         this.particleSystem.preWarmStepOffset = 10;

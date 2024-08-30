@@ -3,7 +3,7 @@ import GameObject from '@/lib/constructors/gameObjects/GameObject';
 import sceneState from '@/lib/constructors/scenes/SceneState';
 import { autorun } from 'mobx';
 import { StarConfig } from '@/lib/constructors/gameObjects/prefabs/stars/configs/starConfig';
-import SunSurfaceTexture from '@/assets/T_SunSurfaceTexture.jpg';
+import { setupParticleEmitters } from './helpers/setupParticleEmitters';
 
 export default class Star extends GameObject {
     public surfaceParticles: BABYLON.ParticleSystem;
@@ -25,34 +25,12 @@ export default class Star extends GameObject {
        
         // Set emissive color and intensity
         this.setEmissiveColor(this.starConfig.color, this.starConfig.luminosity)
-        
-        // Load and store the SunSurfaceTexture texture
-        this.sunSurfaceTexture = (this.starConfig.type === 'K' || this.starConfig.type === 'M') ? new BABYLON.Texture(SunSurfaceTexture, scene) : null;
-        
-        this.setNormalTexture(this.sunSurfaceTexture)
 
-        this.setDiffuseTexture(this.sunSurfaceTexture)
-
-        this.setSpecularColor(new BABYLON.Color3(0, 0, 0))
-
-        // Setup the sun emitter
-        const sunEmitter = new BABYLON.SphereParticleEmitter();
-        sunEmitter.radius = 1;
-        sunEmitter.radiusRange = 0;
-
-        // Setup Particles
-        this.surfaceParticles = this.starConfig.particles.surface.particleSystem;
-        this.flareParticles = this.starConfig.particles.flare.particleSystem;
-        this.coronaParticles = this.starConfig.particles.corona.particleSystem;
-
-        // Set emitters to the mesh
-        this.surfaceParticles.emitter = this.mesh;
-        this.flareParticles.emitter = this.mesh;
-        this.coronaParticles.emitter = this.mesh;
+        // Setup particles using the helper function
+        setupParticleEmitters(this.mesh, this.starConfig, this);
 
         // Set rendering group ID
         this.mesh.renderingGroupId = 3;
-
         this.mesh.scaling = new BABYLON.Vector3(this.starConfig.diameter, this.starConfig.diameter, this.starConfig.diameter);
 
         // Observe global state changes
@@ -70,7 +48,6 @@ export default class Star extends GameObject {
                 this.surfaceParticles.start();
                 this.flareParticles.start();
                 this.coronaParticles.start();
-
                 // Find current Star and set the entire Object to setActiveObject
                 if (sceneState.getActiveObject().pickedMesh === this.mesh) {
                     sceneState.setActiveObject(this);
