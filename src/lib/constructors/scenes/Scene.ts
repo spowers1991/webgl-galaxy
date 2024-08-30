@@ -6,10 +6,10 @@ import { UIConstructor } from '@/lib/constructors/ui/ui';
 import { clickEvent } from '@/lib/constructors/scenes/actions/clickEvent';
 
 const sceneConfig: SceneConfig = {
-    numStars: 500,
+    numStars: 300,
     stars: [],
-    maxDiameter: 500,
-    densityFactor: 0.5, 
+    maxDiameter: 400,
+    densityFactor: 0.25, 
 };
 
 export default class Scene {

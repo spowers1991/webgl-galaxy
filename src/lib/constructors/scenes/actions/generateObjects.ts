@@ -47,7 +47,7 @@ function generateClusterPosition(centerX: number, centerZ: number, clusterRadius
 
 export function generateObjects(scene: BABYLON.Scene, sceneConfig: SceneConfig) {
     const numStars = sceneConfig.numStars;
-    const galaxyRadius = 1500; // Maximum radius of the galaxy
+    const galaxyRadius = 1000; // Maximum radius of the galaxy
     const galaxyThickness = 20; // Thickness of the galaxy in the vertical direction
     const numArms = 4; // Number of spiral arms
     const armSpacing = 2 * Math.PI / numArms; // Angle between spiral arms
