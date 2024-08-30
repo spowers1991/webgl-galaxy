@@ -1,12 +1,12 @@
 import * as BABYLON from 'babylonjs';
-import sunFlareTexture from '@/assets/T_SunFlare.png';
+import sunFlareTexture from '@/assets/T_SunFlareWing.png';
 import { getRandomNumberBetween } from '@/utils/getRandomNumberBetween'
 
 export class ATypeFlareParticles {
     public particleSystem: BABYLON.ParticleSystem;
 
     constructor(scene: BABYLON.Scene, mesh: BABYLON.Mesh, diameter: number) {
-        this.particleSystem = new BABYLON.ParticleSystem("flareParticles", getRandomNumberBetween(5, 10), scene);
+        this.particleSystem = new BABYLON.ParticleSystem("flareParticles", 50, scene);
 
         this.particleSystem.particleTexture = new BABYLON.Texture(sunFlareTexture, scene);
         this.particleSystem.preWarmStepOffset = 10;
@@ -15,23 +15,23 @@ export class ATypeFlareParticles {
         this.particleSystem.maxInitialRotation = 2 * Math.PI;
 
         const sunEmitter = new BABYLON.SphereParticleEmitter();
-        sunEmitter.radius = 1;
+        sunEmitter.radius = 1.5;
         sunEmitter.radiusRange = 0;
         this.particleSystem.emitter = mesh;
         this.particleSystem.particleEmitterType = sunEmitter;
 
-        this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.7, 0.7, 1, getRandomNumberBetween(0.1, 0.25)));
+        this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.75, 0.0, 1.0, getRandomNumberBetween(0.95, 1)));
 
-        this.particleSystem.minScaleX = getRandomNumberBetween(0.35, 0.5);
-        this.particleSystem.minScaleY = getRandomNumberBetween(0.35, 0.5);
-        this.particleSystem.maxScaleX = getRandomNumberBetween(0.5, 1);
-        this.particleSystem.maxScaleY = getRandomNumberBetween(0.5, 1);
+        this.particleSystem.minScaleX = getRandomNumberBetween(5.75, 10);
+        this.particleSystem.minScaleY = getRandomNumberBetween(5.75, 10);
+        this.particleSystem.maxScaleX = getRandomNumberBetween(5.75, 10);
+        this.particleSystem.maxScaleY = getRandomNumberBetween(5.75, 10);
 
         this.particleSystem.addSizeGradient(0, 0);
         this.particleSystem.addSizeGradient(1, 1);
 
         this.particleSystem.minLifeTime = 10.0;
-        this.particleSystem.maxLifeTime = 60.0;
+        this.particleSystem.maxLifeTime = 10.0;
 
         this.particleSystem.emitRate = 1;
 

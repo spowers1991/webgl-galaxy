@@ -6,10 +6,10 @@ import { UIConstructor } from '@/lib/constructors/ui/ui';
 import { clickEvent } from '@/lib/constructors/scenes/actions/clickEvent';
 
 const sceneConfig: SceneConfig = {
-    numStars: 500,
+    numStars: 250,
     stars: [],
-    maxDiameter: 100,
-    densityFactor: 0.5, 
+    maxDiameter: 400,
+    densityFactor: 0.25, 
 };
 
 export default class Scene {
@@ -31,7 +31,7 @@ export default class Scene {
         this.glowLayer.intensity = 1.25; // Adjust intensity for performance
 
         // Create multiple stars at random positions
-        generateObjects(this.scene, this.config, this.glowLayer);
+        generateObjects(this.scene, this.config);
 
         // Set up click event listener
         clickEvent(this, this.camera); // Pass `this` (the current scene instance)

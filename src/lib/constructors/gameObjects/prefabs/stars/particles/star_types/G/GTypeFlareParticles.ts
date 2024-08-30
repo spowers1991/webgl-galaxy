@@ -6,7 +6,7 @@ export class GTypeFlareParticles {
     public particleSystem: BABYLON.ParticleSystem;
 
     constructor(scene: BABYLON.Scene, mesh: BABYLON.Mesh, diameter: number) {
-        this.particleSystem = new BABYLON.ParticleSystem("flareParticles", 20, scene);
+        this.particleSystem = new BABYLON.ParticleSystem("flareParticles", 10, scene);
 
         this.particleSystem.particleTexture = new BABYLON.Texture(sunFlareTexture, scene);
         this.particleSystem.preWarmStepOffset = 10;
@@ -21,12 +21,12 @@ export class GTypeFlareParticles {
         this.particleSystem.particleEmitterType = sunEmitter;
 
         this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 1, 0.5, 0.095));
-        this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(0.3773, 0.0930, 0.0266, 0.65));
+        this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(0.3773, 0.0930, 0.0266, 0.5));
 
         this.particleSystem.minScaleX = diameter * getRandomNumberBetween(0.5, 1);
         this.particleSystem.minScaleY = diameter * getRandomNumberBetween(0.5, 1);
-        this.particleSystem.maxScaleX = diameter * getRandomNumberBetween(1, 2);
-        this.particleSystem.maxScaleY = diameter * getRandomNumberBetween(1, 2);
+        this.particleSystem.maxScaleX = diameter * getRandomNumberBetween(1, 1);
+        this.particleSystem.maxScaleY = diameter * getRandomNumberBetween(1, 1);
 
         this.particleSystem.addSizeGradient(0, 0);
         this.particleSystem.addSizeGradient(1, 1);

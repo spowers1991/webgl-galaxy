@@ -7,7 +7,7 @@ import * as BABYLON from 'babylonjs';
  * @param maxDistance - The maximum distance within which to find meshes.
  * @returns An array of meshes that are closest to the reference mesh.
  */
-export function findClosestMeshes(scene: BABYLON.Scene, referenceMesh: BABYLON.AbstractMesh, maxDistance: number = 10): BABYLON.Mesh[] {
+export function findClosestMeshes(scene: BABYLON.Scene, referenceMesh: BABYLON.AbstractMesh, maxDistance: number = 50): BABYLON.Mesh[] {
     const closestMeshes: BABYLON.Mesh[] = [];
 
     // Ensure the reference mesh is valid

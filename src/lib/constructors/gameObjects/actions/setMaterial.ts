@@ -1,10 +1,11 @@
 import * as BABYLON from 'babylonjs';
 import { logMeshNotAssignedError } from '../helpers/logMeshNotAssignedError';
 
-export const setMaterial = (mesh: BABYLON.Mesh | null, material: BABYLON.Material, name: string) => {
+export const setMaterial = (mesh: BABYLON.Mesh, material: BABYLON.StandardMaterial , name: string) => {
     if (mesh) {
         mesh.material = material;
+        return material;
     } else {
-        logMeshNotAssignedError(name);
+        console.log('No set Material')
     }
 };

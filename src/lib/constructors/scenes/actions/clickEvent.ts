@@ -12,7 +12,7 @@ export function clickEvent(Scene: Scene, camera: Camera) {
             const pickResult = pointerInfo.pickInfo;
             if (pickResult?.hit && pickResult.pickedMesh) {
                 
-                const zoomDistance = 10; // Specify the desired zoom distance
+                const zoomDistance = 50; // Specify the desired zoom distance
                 const duration = 1000; // Specify the duration in milliseconds
 
                 camera.focusOnMesh(pickResult.pickedMesh, zoomDistance, duration);
