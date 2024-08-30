@@ -5,7 +5,7 @@ import { generateObjects } from '@/lib/constructors/scenes/actions/generateObjec
 import { UIConstructor } from '@/lib/constructors/ui/ui';
 import { clickEvent } from '@/lib/constructors/scenes/actions/clickEvent';
 
-const config: SceneConfig = {
+const sceneConfig: SceneConfig = {
     numStars: 150,
     stars: [],
     maxDiameter: 400,
@@ -19,7 +19,7 @@ export default class Scene {
     private glowLayer: BABYLON.GlowLayer; 
 
     constructor(engine: BABYLON.Engine, canvas: HTMLCanvasElement, config?: SceneConfig) {
-        this.config = { ...config, ...config };
+        this.config = { ...sceneConfig, ...config };
         this.scene = new BABYLON.Scene(engine);
         
         // Setup environment
