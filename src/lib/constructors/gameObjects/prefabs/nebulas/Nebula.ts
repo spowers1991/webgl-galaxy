@@ -38,8 +38,6 @@ export default class Nebula extends GameObject {
 
     private observeGlobalState() {
         autorun(() => {
-            //const objectsToRender = sceneState.getObjectsToRender().slice();
-           // const objectInView = objectsToRender.some(obj => obj === this.mesh);
             console.log(this)
         });
     }
