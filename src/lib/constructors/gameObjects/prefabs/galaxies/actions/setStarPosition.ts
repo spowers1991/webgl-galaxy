@@ -33,14 +33,14 @@ export function setStarPosition(
             const nebulaConfig: NebulaConfig = {
                 id: oTypeClusters.length, // Use the cluster length as an ID for uniqueness
                 name: "Nebula",
-                type: "Nebula",
+                type: "Blue",
                 diameter: 10,
-                particles: getParticleSystems(scene, starType, null, 10),
+                particles: getParticleSystems(scene, "Blue", null, 10),
                 color: new BABYLON.Color3(1, 0.5, 0.5), // Example color, adjust as needed
-                luminosity: 100.0 // Example luminosity, adjust as needed
+                luminosity: 1.0 // Example luminosity, adjust as needed
             };
 
-            new Nebula("Nebula" + nebulaConfig.id, scene, nebulaConfig, clusterCenter);
+            new Nebula("Nebula " + nebulaConfig.id, scene, nebulaConfig, clusterCenter);
 
             // Set the star position to the cluster center
             x = clusterCenter.x;
@@ -50,6 +50,19 @@ export function setStarPosition(
         // Spread M-type stars more uniformly
         x += (Math.random() - 0.5) * galaxyRadius * 0.1;
         z += (Math.random() - 0.5) * galaxyRadius * 0.1;
+
+        // Create and position a new Nebula at the center of the new cluster
+        const nebulaConfig: NebulaConfig = {
+            id: oTypeClusters.length, // Use the cluster length as an ID for uniqueness
+            name: "Nebula",
+            type: "Red",
+            diameter: 10,
+            particles: getParticleSystems(scene, "Red", null, 10),
+            color: new BABYLON.Color3(1, 0.5, 0.5), // Example color, adjust as needed
+            luminosity: 1.0 // Example luminosity, adjust as needed
+        };
+        console.log()
+        new Nebula("Nebula " + nebulaConfig.id, scene, nebulaConfig, new BABYLON.Vector3(x, 0, z));
     }
 
     return { x, z };
