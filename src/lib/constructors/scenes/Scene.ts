@@ -1,15 +1,19 @@
 import * as BABYLON from 'babylonjs';
 import Camera from '@/lib/constructors/cameras/Camera';
 import { SceneConfig } from '@/lib/constructors/scenes/configs/SceneConfig';
-import { generateObjects } from '@/lib/constructors/scenes/actions/generateObjects';
-import { UIConstructor } from '@/lib/constructors/ui/ui';
-import { clickEvent } from '@/lib/constructors/scenes/actions/clickEvent';
+import { setupClickEvents } from '@/lib/constructors/scenes/actions/setupClickEvents';
+import { Galaxy } from '@/lib/constructors/gameObjects/prefabs/galaxies/Galaxy';
 
 const sceneConfig: SceneConfig = {
-    numStars: 250,
+    numStars: 450,
     stars: [],
     maxDiameter: 400,
-    densityFactor: 0.25, 
+    densityFactor: 0.25,
+    galaxyRadius: 1500,    // Maximum radius of the galaxy
+    galaxyThickness: 100,  // Thickness of the galaxy in the vertical direction
+    numArms: 4,            // Number of spiral arms
+    spiralFactor: 5,       // Factor to control the tightness of the spirals
+    clusterRadius: 100,    // Radius for O-type star clusters
 };
 
 export default class Scene {
@@ -30,14 +34,12 @@ export default class Scene {
         this.glowLayer = new BABYLON.GlowLayer("glow", this.scene);
         this.glowLayer.intensity = 1.25; // Adjust intensity for performance
 
-        // Create multiple stars at random positions
-        generateObjects(this.scene, this.config);
+        const galaxy = new Galaxy(this.scene, sceneConfig);
+        galaxy.generate();
 
         // Set up click event listener
-        clickEvent(this, this.camera); // Pass `this` (the current scene instance)
+        setupClickEvents(this, this.camera); // Pass `this` (the current scene instance)
         
-        // Set up User Interface
-        const uiConstructor = new UIConstructor('ui-container');
     }
 
     getScene(): BABYLON.Scene {

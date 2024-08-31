@@ -10,7 +10,6 @@ export default class Star extends GameObject {
     public flareParticles: BABYLON.ParticleSystem;
     public coronaParticles: BABYLON.ParticleSystem;
     public starConfig: StarConfig;
-    private sunSurfaceTexture: BABYLON.Texture | null;
 
     constructor(name: string, scene: BABYLON.Scene, starConfig: StarConfig) {
         super(name, scene);

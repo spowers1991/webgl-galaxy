@@ -1,16 +1,13 @@
 export interface ParticleSystems {
-    corona: any;
-    flare: any;
-    surface: any;
+    nebula: any;
 }
 
-export interface StarConfig {
+export interface NebulaConfig {
     id: number;
     name: string;
     type: string; 
     diameter: number;
+    particles: ParticleSystems; 
     color: BABYLON.Color3;
     luminosity: number;
-    mass: number;
-    particles: ParticleSystems; 
 }
