@@ -1,16 +1,16 @@
 import * as BABYLON from 'babylonjs';
-import NebulaTexture from '@/assets/T_Nebula_Red.png';
+import NebulaTexture from '@/assets/T_Cluster_Nebula_A.png';
 import { getRandomNumberBetween } from '@/utils/getRandomNumberBetween';
 
-export class RedNebulaParticles {
+export class BlueNebulaParticles {
     public particleSystem: BABYLON.ParticleSystem;
     private particlesCount: number;
 
     constructor(scene: BABYLON.Scene, mesh: BABYLON.Mesh, emitter: BABYLON.IParticleEmitterType) {
 
-        this.particlesCount = Math.round(getRandomNumberBetween(1, 2))
+        this.particlesCount = Math.round(getRandomNumberBetween(5, 10))
 
-        this.particleSystem = new BABYLON.ParticleSystem("T_Nebula_A", this.particlesCount, scene);
+        this.particleSystem = new BABYLON.ParticleSystem("T_Cluster_Nebula_A", this.particlesCount, scene);
 
         this.particleSystem.particleTexture = new BABYLON.Texture(NebulaTexture, scene);
         this.particleSystem.preWarmStepOffset = 10;
@@ -21,21 +21,12 @@ export class RedNebulaParticles {
         this.particleSystem.emitter = mesh;
         this.particleSystem.particleEmitterType = emitter;
 
-<<<<<<< HEAD
-        this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 1, 1, getRandomNumberBetween(0.1, 0.25)));
-
-        this.particleSystem.minScaleX = 200;
-        this.particleSystem.minScaleY = 200;
-        this.particleSystem.maxScaleX = 200;
-        this.particleSystem.maxScaleY = 200;
-=======
-        this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 1, 1, getRandomNumberBetween(0.12, 0.18)));
+        this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 1, 1, 1));
 
         this.particleSystem.minScaleX = 500;
         this.particleSystem.minScaleY = 500;
-        this.particleSystem.maxScaleX = 400;
+        this.particleSystem.maxScaleX = 200;
         this.particleSystem.maxScaleY = 300;
->>>>>>> 3eecf36c8d3693580c5e646ec844ee759dad96b5
 
         this.particleSystem.minLifeTime = 200.0;
         this.particleSystem.maxLifeTime = 200.0;
