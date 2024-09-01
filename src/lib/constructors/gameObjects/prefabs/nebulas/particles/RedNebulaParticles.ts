@@ -21,12 +21,12 @@ export class RedNebulaParticles {
         this.particleSystem.emitter = mesh;
         this.particleSystem.particleEmitterType = emitter;
 
-        this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 1, 1, getRandomNumberBetween(0.12, 0.18)));
+        this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 1, 1, getRandomNumberBetween(0.1, 0.25)));
 
-        this.particleSystem.minScaleX = 500;
-        this.particleSystem.minScaleY = 500;
-        this.particleSystem.maxScaleX = 400;
-        this.particleSystem.maxScaleY = 300;
+        this.particleSystem.minScaleX = 200;
+        this.particleSystem.minScaleY = 200;
+        this.particleSystem.maxScaleX = 200;
+        this.particleSystem.maxScaleY = 200;
 
         this.particleSystem.minLifeTime = 200.0;
         this.particleSystem.maxLifeTime = 200.0;

@@ -34,10 +34,10 @@ export class KTypeCoronaParticles {
         else {
             this.type = "dwarf"
                 this.particleSystem.particleTexture = new BABYLON.Texture(starAuraTextureDwarf, scene);
-                this.particleSystem.minScaleX = getRandomNumberBetween(0.1, 2);
-                this.particleSystem.minScaleY = getRandomNumberBetween(0.1, 2);
-                this.particleSystem.maxScaleX = getRandomNumberBetween(0.1, 2);
-                this.particleSystem.maxScaleY = getRandomNumberBetween(0.1, 2);
+                this.particleSystem.minScaleX = getRandomNumberBetween(1, 3);
+                this.particleSystem.minScaleY = getRandomNumberBetween(1, 3);
+                this.particleSystem.maxScaleX = getRandomNumberBetween(1, 3);
+                this.particleSystem.maxScaleY = getRandomNumberBetween(1, 3);
                 this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 1, 0.5, getRandomNumberBetween(0.009, 0.01)));
                 this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.1, 0.03)));
                 this.particleSystem.addColorGradient(1.0, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.01, 0.02)));

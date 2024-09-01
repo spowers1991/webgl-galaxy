@@ -9,7 +9,7 @@ export class MTypeFlareParticles {
 
     constructor(scene: BABYLON.Scene, mesh: BABYLON.Mesh, diameter: number) {
 
-        this.particleSystem = new BABYLON.ParticleSystem("flareParticles", 1000, scene);
+        this.particleSystem = new BABYLON.ParticleSystem("flareParticles", 10, scene);
 
         this.particleSystem.particleTexture = new BABYLON.Texture(sunFlareTexture, scene);
         this.particleSystem.preWarmStepOffset = 10;
@@ -23,7 +23,7 @@ export class MTypeFlareParticles {
         this.particleSystem.emitter = mesh;
         this.particleSystem.particleEmitterType = sunEmitter;
 
-        this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.05, 0.75)));
+        this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.1, 0.75)));
 
         if(diameter > 2) {
             this.type = "giant"
@@ -34,10 +34,10 @@ export class MTypeFlareParticles {
         }
         else {
             this.type = "dwarf"
-            this.particleSystem.minScaleX = diameter * getRandomNumberBetween(0.1, 2);
-            this.particleSystem.minScaleY = diameter * getRandomNumberBetween(0.1, 2);
-            this.particleSystem.maxScaleX = diameter * getRandomNumberBetween(0.1, 2);
-            this.particleSystem.maxScaleY = diameter * getRandomNumberBetween(0.1, 2);
+            this.particleSystem.minScaleX = diameter * getRandomNumberBetween(1, 2);
+            this.particleSystem.minScaleY = diameter * getRandomNumberBetween(1, 2);
+            this.particleSystem.maxScaleX = diameter * getRandomNumberBetween(1, 2);
+            this.particleSystem.maxScaleY = diameter * getRandomNumberBetween(1, 2);
         }
 
         this.particleSystem.addSizeGradient(0, 0);

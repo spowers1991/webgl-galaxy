@@ -24,7 +24,7 @@ export class KTypeSurfaceParticles {
         this.particleSystem.maxInitialRotation = 2 * Math.PI;
 
         const sunEmitter = new BABYLON.SphereParticleEmitter();
-        sunEmitter.radius = 0.9;
+        sunEmitter.radius = 1;
         sunEmitter.radiusRange = 0;
         this.particleSystem.emitter = mesh;
         this.particleSystem.particleEmitterType = sunEmitter;
@@ -35,7 +35,7 @@ export class KTypeSurfaceParticles {
                 this.particleSystem.minScaleY =  diameter 
                 this.particleSystem.maxScaleX = diameter 
                 this.particleSystem.maxScaleY =  diameter 
-                this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.05, 0.075)));
+                this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.015, 0.025)));
         }
         else {
             this.type = "dwarf"

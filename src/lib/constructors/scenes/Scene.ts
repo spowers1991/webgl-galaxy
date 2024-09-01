@@ -5,11 +5,11 @@ import { setupClickEvents } from '@/lib/constructors/scenes/actions/setupClickEv
 import { Galaxy } from '@/lib/constructors/gameObjects/prefabs/galaxies/Galaxy';
 
 const sceneConfig: SceneConfig = {
-    numStars: 450,
+    numStars: 250,
     stars: [],
-    maxDiameter: 400,
-    densityFactor: 0.95,
-    galaxyRadius: 1000,    // Maximum radius of the galaxy
+    maxDiameter: 600,
+    densityFactor: 0.25,
+    galaxyRadius: 600,    // Maximum radius of the galaxy
     galaxyThickness: 100,  // Thickness of the galaxy in the vertical direction
     numArms: 4,            // Number of spiral arms
     spiralFactor: 5,       // Factor to control the tightness of the spirals

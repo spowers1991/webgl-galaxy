@@ -38,7 +38,7 @@ export class MTypeSurfaceParticles {
                 this.particleSystem.maxScaleX = diameter + 0.11
                 this.particleSystem.maxScaleY =  diameter + 0.1
                 this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.01, 0.05))); 
-                this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.05, 0.1))); 
+                this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.01, 0.05))); 
         }
         else {
             this.type = "dwarf"
