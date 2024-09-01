@@ -30,17 +30,7 @@ export default class Nebula extends GameObject {
        // this.mesh.scaling = new BABYLON.Vector3(this.nebulaConfig.diameter, this.nebulaConfig.diameter, this.nebulaConfig.diameter);
 
        this.nebulaParticles.start(); 
-
-       // Observe global state changes
-       this.observeGlobalState();
     
     }
-
-    private observeGlobalState() {
-        autorun(() => {
-            console.log(this)
-        });
-    }
-    
-
+   
 }
