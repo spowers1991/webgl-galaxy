@@ -52,7 +52,7 @@ export class KTypeFlareParticles {
 
 
         this.particleSystem.minLifeTime = 10.0;
-        this.particleSystem.maxLifeTime = 10.0;
+        this.particleSystem.maxLifeTime = 20.0;
 
         this.particleSystem.emitRate = 1;
 

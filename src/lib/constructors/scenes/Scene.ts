@@ -9,7 +9,13 @@ const sceneConfig: SceneConfig = {
     numStars: 250,
     stars: [],
     maxDiameter: 400,
-    densityFactor: 0.25, 
+    densityFactor: 0.65,
+    galaxyRadius: 600,    // Maximum radius of the galaxy
+    galaxyThickness: 100,  // Thickness of the galaxy in the vertical direction
+    numArms: 4,            // Number of spiral arms
+    spiralFactor: 5,       // Factor to control the tightness of the spirals
+    clusterRadius: 100,    // Radius for O-type star clusters
+
 };
 
 export default class Scene {
