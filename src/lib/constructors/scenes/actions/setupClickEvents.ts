@@ -4,7 +4,7 @@ import Scene from '@/lib/constructors/scenes/Scene';
 import sceneState from '@/lib/constructors/scenes/SceneState';
 import { findClosestMeshes } from '@/lib/constructors/scenes/helpers/findClosestMeshes'; 
 
-export function clickEvent(Scene: Scene, camera: Camera) {
+export function setupClickEvents(Scene: Scene, camera: Camera) {
     const scene = Scene.getScene(); // Get the BABYLON.Scene instance
 
     scene.onPointerObservable.add((pointerInfo) => {
