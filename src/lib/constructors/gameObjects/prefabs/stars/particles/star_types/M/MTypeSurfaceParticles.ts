@@ -8,14 +8,8 @@ export class MTypeSurfaceParticles {
     public type: string;
 
     constructor(scene: BABYLON.Scene, mesh: BABYLON.Mesh, diameter: number) {
-        
-        if(diameter > 2) {
-            this.particleCount = 1500
-        } else {
-            this.particleCount = 1400
-        }
 
-        this.particleSystem = new BABYLON.ParticleSystem("surfaceParticles", this.particleCount, scene);
+        this.particleSystem = new BABYLON.ParticleSystem("surfaceParticles", 500, scene);
 
         this.particleSystem.particleTexture = new BABYLON.Texture(sunSurfaceTexture, scene);
         this.particleSystem.preWarmStepOffset = 10;

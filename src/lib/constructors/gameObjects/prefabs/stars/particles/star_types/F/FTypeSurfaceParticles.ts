@@ -15,12 +15,12 @@ export class FTypeSurfaceParticles {
         this.particleSystem.maxInitialRotation = 2 * Math.PI;
 
         const sunEmitter = new BABYLON.SphereParticleEmitter();
-        sunEmitter.radius = 1.01;
+        sunEmitter.radius = 1;
         sunEmitter.radiusRange = 0;
         this.particleSystem.emitter = mesh;
         this.particleSystem.particleEmitterType = sunEmitter;
 
-        this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 0.9, 0.7, getRandomNumberBetween(0.01, 0.05)));
+        this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 0.6, 0.2, getRandomNumberBetween(0.015, 0.025)));
 
 
         this.particleSystem.minSize = 0.4;

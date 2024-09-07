@@ -4,7 +4,7 @@ import sceneState from '@/lib/constructors/scenes/SceneState';
 import { autorun } from 'mobx';
 import { StarConfig } from '@/lib/constructors/gameObjects/prefabs/stars/configs/starConfig';
 import { setupParticleEmitters } from './helpers/setupParticleEmitters';
-import SunSurfaceTexture from '@/assets/T_SunSurfaceTexture.jpg'
+import { getStarTextures } from './helpers/getStarTextures';
 
 export default class Star extends GameObject {
     public surfaceParticles: BABYLON.ParticleSystem;
@@ -26,10 +26,12 @@ export default class Star extends GameObject {
         // Set emissive color and intensity
         this.setEmissiveColor(this.starConfig.color, this.starConfig.luminosity)
 
+        const texture = getStarTextures(this.starConfig.type);
+
         if (this.starConfig.type === "M" || this.starConfig.type === "K"){ 
-            this.setNormalTexture(new BABYLON.Texture(SunSurfaceTexture, scene))
-            this.setDiffuseTexture(new BABYLON.Texture(SunSurfaceTexture, scene))
-       }
+            this.setNormalTexture(new BABYLON.Texture(texture, scene))
+            this.setDiffuseTexture(new BABYLON.Texture(texture, scene))
+        }
 
         // Setup particles using the helper function
         setupParticleEmitters(this.mesh, this.starConfig, this);

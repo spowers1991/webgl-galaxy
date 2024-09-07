@@ -27,8 +27,8 @@ export class MTypeCoronaParticles {
                 this.particleSystem.minScaleY = getRandomNumberBetween(12, 80);
                 this.particleSystem.maxScaleX = getRandomNumberBetween(12, 80);
                 this.particleSystem.maxScaleY = getRandomNumberBetween(12, 80);
-                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2, getRandomNumberBetween(0.1, 0.25)));
-                this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.1, 0.25))); 
+                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2, getRandomNumberBetween(0.1, 0.2)));
+                this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.1, 0.2))); 
         }
         else {
             this.type = "dwarf"

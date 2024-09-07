@@ -1,5 +1,5 @@
 import * as BABYLON from 'babylonjs';
-import starAuraTextureGiant from '@/assets/T_Aura_Generic.png';
+import starAuraTextureGiant from '@/assets/T_Aura_Blue.png';
 import starAuraTextureDwarf from '@/assets/T_SunSurface.png';
 import { getRandomNumberBetween } from '@/utils/getRandomNumberBetween'
 
@@ -27,8 +27,8 @@ export class KTypeCoronaParticles {
                 this.particleSystem.minScaleY = diameter * getRandomNumberBetween(5, 10)
                 this.particleSystem.maxScaleX = diameter * getRandomNumberBetween(5, 10)
                 this.particleSystem.maxScaleY = diameter * getRandomNumberBetween(5, 10)
-                this.particleSystem.addColorGradient(0.0, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.1, 0.35)));
-                this.particleSystem.addColorGradient(0.25, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.1, 0.35)));
+                this.particleSystem.addColorGradient(0.0, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.1, 0.5)));
+                this.particleSystem.addColorGradient(0.25, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.1, 0.5)));
                 this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(1, 1, 0.5,  getRandomNumberBetween(0.1, 0.75)));
         }
         else {
