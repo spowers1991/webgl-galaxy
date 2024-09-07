@@ -27,9 +27,9 @@ export class MTypeFlareParticles {
 
         if(diameter > 2) {
             this.type = "giant"
-            this.particleSystem.minScaleX = diameter * getRandomNumberBetween(1.5, 2);
-            this.particleSystem.minScaleY = diameter * getRandomNumberBetween(1.5, 2);
-            this.particleSystem.maxScaleX = diameter * getRandomNumberBetween(1.5, 2);
+            this.particleSystem.minScaleX = diameter * getRandomNumberBetween(1, 2);
+            this.particleSystem.minScaleY = diameter * getRandomNumberBetween(1, 2);
+            this.particleSystem.maxScaleX = diameter * getRandomNumberBetween(1, 2);
             this.particleSystem.maxScaleY = diameter * getRandomNumberBetween(1, 2);
         }
         else {

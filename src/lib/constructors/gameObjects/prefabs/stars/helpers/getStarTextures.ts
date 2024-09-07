@@ -4,7 +4,6 @@ import SunSurfaceTexture3 from '@/assets/T_SunSurfaceTexture_3.jpg'
 
 export function getStarTextures( type: String ) {
 
-console.log(type)
      // Array of Sun surface texture URLs
      const KSurfaceTextures = [
         SunSurfaceTexture, 
