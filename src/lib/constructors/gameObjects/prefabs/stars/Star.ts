@@ -39,11 +39,11 @@ export default class Star extends GameObject {
         this.mesh.scaling = new BABYLON.Vector3(this.starConfig.diameter, this.starConfig.diameter, this.starConfig.diameter);
 
         // Observe global state changes
-        this.observeGlobalState(scene);
+        this.observeGlobalState();
     }
 
     // Observable global state for active Stars
-    private observeGlobalState(scene) {
+    private observeGlobalState() {
         autorun(() => {
             const objectsToRender = sceneState.getObjectsToRender().slice();
             const objectInView = objectsToRender.some(obj => obj === this.mesh);
@@ -54,9 +54,12 @@ export default class Star extends GameObject {
                 this.surfaceParticles.start();
                 this.flareParticles.start();
                 this.coronaParticles.start();
-                // Find current Star and set the entire Object to setActiveObject
+
+                // Find current Star and set the entire Object to setActiveObject as well as the mesh
                 if (sceneState.getActiveObject().pickedMesh === this.mesh) {
                     sceneState.setActiveObject(this);
+
+                    // Rendering groups
                     this.flareParticles.renderingGroupId = 1;
                     this.coronaParticles.renderingGroupId = 3;
                 }

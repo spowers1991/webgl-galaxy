@@ -44,7 +44,7 @@ export class KTypeSurfaceParticles {
                 this.particleSystem.maxScaleX = diameter  + getRandomNumberBetween(0.1, 0.2)
                 this.particleSystem.maxScaleY =  diameter + getRandomNumberBetween(0.1, 0.2)
                 this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 0.6, 0.2, getRandomNumberBetween(0.005, 0.01)));
-                this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.005, 0.01)));
+                this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(1, 1, 0.5, getRandomNumberBetween(0.005, 0.01)));
         }
 
         this.particleSystem.minLifeTime = 8.0;
