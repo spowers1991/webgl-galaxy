@@ -20,7 +20,7 @@ export class GTypeSurfaceParticles {
         this.particleSystem.emitter = mesh;
         this.particleSystem.particleEmitterType = sunEmitter;
 
-        this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.07, 0.1)));
+        this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.03, 0.05)));
 
         this.particleSystem.minSize = 0.1;
         this.particleSystem.maxSize = diameter

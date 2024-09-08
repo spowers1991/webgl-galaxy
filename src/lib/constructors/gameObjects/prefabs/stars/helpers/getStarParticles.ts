@@ -1,7 +1,4 @@
 import * as BABYLON from 'babylonjs';
-import { CoronaParticles } from '../particles/coronaParticles';
-import { FlareParticles } from '../particles/flareParticles';
-import { SurfaceParticles } from '../particles/surfaceParticles';
 
 import { OTypeCoronaParticles } from '../particles/star_types/O/OTypeCoronaParticles';
 import { OTypeSurfaceParticles } from '../particles/star_types/O/OTypeSurfaceParticles';
@@ -31,15 +28,9 @@ import { MTypeCoronaParticles } from '../particles/star_types/M/MTypeCoronaParti
 import { MTypeSurfaceParticles } from '../particles/star_types/M/MTypeSurfaceParticles';
 import { MTypeFlareParticles } from '../particles/star_types/M/MTypeFlareParticles';
 
-// Define the ParticleSystems interface
-export interface ParticleSystems {
-    corona: CoronaParticles;
-    flare: FlareParticles;
-    surface: SurfaceParticles;
-}
 
 // Function to get Particle Systems based on star type
-export function getParticleSystems(scene: BABYLON.Scene, type: string, mesh: BABYLON.Mesh, diameter: number): ParticleSystems {
+export function getParticleSystems(scene: BABYLON.Scene, type: string, mesh: BABYLON.Mesh, diameter: number) {
     // Define the emitter for corona particles
     const emitter = new BABYLON.SphereParticleEmitter();
     emitter.radius = 1;

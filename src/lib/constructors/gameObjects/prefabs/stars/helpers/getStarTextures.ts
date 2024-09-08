@@ -1,6 +1,8 @@
 import SunSurfaceTexture from '@/assets/T_SunSurfaceTexture.jpg'
 import SunSurfaceTexture2 from '@/assets/T_SunSurfaceTexture_2.jpg'
 import SunSurfaceTexture3 from '@/assets/T_SunSurfaceTexture_3.jpg'
+import SunSurfaceTexture4 from '@/assets/T_SunSurfaceTexture_4.jpg'
+import SunSurfaceTexture5 from '@/assets/T_SunSurfaceTexture_5.jpg'
 
 export function getStarTextures( type: String ) {
 
@@ -8,12 +10,16 @@ export function getStarTextures( type: String ) {
      const KSurfaceTextures = [
         SunSurfaceTexture, 
         SunSurfaceTexture2, 
-        SunSurfaceTexture3
+        SunSurfaceTexture3,
+        SunSurfaceTexture4,
+        SunSurfaceTexture5
     ];
 
     const MSurfaceTextures = [
         SunSurfaceTexture,  
-        SunSurfaceTexture3
+        SunSurfaceTexture3,
+        SunSurfaceTexture4,
+        SunSurfaceTexture5
     ];
 
     if ( type === "K") {

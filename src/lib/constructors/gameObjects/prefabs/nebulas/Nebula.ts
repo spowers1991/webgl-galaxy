@@ -1,6 +1,5 @@
 import * as BABYLON from 'babylonjs';
 import GameObject from '@/lib/constructors/gameObjects/GameObject';
-import { autorun } from 'mobx';
 import { NebulaConfig } from '@/lib/constructors/gameObjects/prefabs/nebulas/configs/NebulaConfig';
 import { setupParticleEmitters } from './helpers/setupParticleEmitters';
 

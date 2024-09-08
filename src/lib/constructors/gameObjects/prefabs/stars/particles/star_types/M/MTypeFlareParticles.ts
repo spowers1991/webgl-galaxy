@@ -24,27 +24,28 @@ export class MTypeFlareParticles {
         this.particleSystem.particleEmitterType = sunEmitter;
 
         this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.1, 0.75)));
+        this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(0, 0, 0, 1));
 
         if(diameter > 2) {
             this.type = "giant"
-            this.particleSystem.minScaleX = diameter * getRandomNumberBetween(1, 2);
-            this.particleSystem.minScaleY = diameter * getRandomNumberBetween(1, 2);
-            this.particleSystem.maxScaleX = diameter * getRandomNumberBetween(1, 2);
-            this.particleSystem.maxScaleY = diameter * getRandomNumberBetween(1, 2);
+            this.particleSystem.minScaleX = diameter * getRandomNumberBetween(2, 5);
+            this.particleSystem.minScaleY = diameter * getRandomNumberBetween(2, 5);
+            this.particleSystem.maxScaleX = diameter * getRandomNumberBetween(2, 5);
+            this.particleSystem.maxScaleY = diameter * getRandomNumberBetween(2, 5);
         }
         else {
             this.type = "dwarf"
-            this.particleSystem.minScaleX = diameter * getRandomNumberBetween(1, 2);
-            this.particleSystem.minScaleY = diameter * getRandomNumberBetween(1, 2);
-            this.particleSystem.maxScaleX = diameter * getRandomNumberBetween(1, 2);
-            this.particleSystem.maxScaleY = diameter * getRandomNumberBetween(1, 2);
+            this.particleSystem.minScaleX = diameter * getRandomNumberBetween(2, 3);
+            this.particleSystem.minScaleY = diameter * getRandomNumberBetween(2, 3);
+            this.particleSystem.maxScaleX = diameter * getRandomNumberBetween(2, 3);
+            this.particleSystem.maxScaleY = diameter * getRandomNumberBetween(2, 3);
         }
 
         this.particleSystem.addSizeGradient(0, 0);
         this.particleSystem.addSizeGradient(1, 1);
 
-        this.particleSystem.minLifeTime = 10.0;
-        this.particleSystem.maxLifeTime = 20.0;
+        this.particleSystem.minLifeTime = 4.0;
+        this.particleSystem.maxLifeTime = 6.0;
 
         this.particleSystem.emitRate = 1;
 
