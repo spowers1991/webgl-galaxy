@@ -10,7 +10,7 @@ export function getStarDiameter(type: string): number {
         case 'B':
             return getRandomNumberBetween(0.2, 1); // Example range for B-type stars
         case 'A':
-            return getRandomNumberBetween(0.4, 0.7); // Example range for A-type stars
+            return getRandomNumberBetween(0.4, 0.5); // Example range for A-type stars
         case 'F':
             return getRandomNumberBetween(0.4, 0.7); // Example range for F-type stars
         case 'G':

@@ -7,7 +7,7 @@ export class RedNebulaParticles {
 
     constructor(scene: BABYLON.Scene, mesh: BABYLON.Mesh, emitter: BABYLON.IParticleEmitterType) {
 
-        this.particlesCount = 10;
+        this.particlesCount = 5;
 
         this.particleSystem = new BABYLON.ParticleSystem("T_Cluster_Nebula_B_Type", this.particlesCount, scene);
 

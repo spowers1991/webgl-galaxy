@@ -23,7 +23,7 @@ export class MTypeFlareParticles {
         this.particleSystem.emitter = mesh;
         this.particleSystem.particleEmitterType = sunEmitter;
 
-        this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.1, 0.75)));
+        this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.5, 1)));
         this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(0, 0, 0, 1));
 
         if(diameter > 2) {

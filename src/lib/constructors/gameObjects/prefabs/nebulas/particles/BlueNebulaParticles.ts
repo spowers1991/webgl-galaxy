@@ -8,7 +8,7 @@ export class BlueNebulaParticles {
 
     constructor(scene: BABYLON.Scene, mesh: BABYLON.Mesh, emitter: BABYLON.IParticleEmitterType) {
 
-        this.particlesCount = Math.round(getRandomNumberBetween(5, 15))
+        this.particlesCount = Math.round(getRandomNumberBetween(10, 12))
 
         this.particleSystem = new BABYLON.ParticleSystem("T_Cluster_Nebula_A_Type", this.particlesCount, scene);
 
