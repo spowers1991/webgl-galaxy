@@ -28,8 +28,7 @@ export class KTypeCoronaParticles {
                 this.particleSystem.maxScaleX = diameter * getRandomNumberBetween(5, 10)
                 this.particleSystem.maxScaleY = diameter * getRandomNumberBetween(5, 10)
                 this.particleSystem.addColorGradient(0.0, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.1, 0.5)));
-                this.particleSystem.addColorGradient(0.25, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.1, 0.5)));
-                this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(1, 1, 0.5,  getRandomNumberBetween(0.1, 0.75)));
+                this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(0, 0, 0.5,  getRandomNumberBetween(0.1, 0.75)));
         }
         else {
             this.type = "dwarf"

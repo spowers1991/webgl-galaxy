@@ -10,7 +10,7 @@ export class MTypeCoronaParticles {
 
     constructor(scene: BABYLON.Scene, mesh: BABYLON.Mesh, emitter: BABYLON.IParticleEmitterType, diameter: number) {
 
-        this.particleSystem = new BABYLON.ParticleSystem("coronaParticles", 20, scene);
+        this.particleSystem = new BABYLON.ParticleSystem("coronaParticles", 10, scene);
 
         this.particleSystem.preWarmStepOffset = 10;
         this.particleSystem.preWarmCycles = 100;
