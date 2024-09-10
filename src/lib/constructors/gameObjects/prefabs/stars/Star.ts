@@ -26,11 +26,14 @@ export default class Star extends GameObject {
         // Set emissive color and intensity
         this.setEmissiveColor(this.starConfig.color, this.starConfig.luminosity)
 
-        const texture = getStarTextures(this.starConfig.type);
+        const texture = getStarTextures(this.starConfig.type, this.starConfig.diameter);
 
         if (this.starConfig.type === "M" || this.starConfig.type === "K"){ 
             this.setNormalTexture(new BABYLON.Texture(texture, scene))
             this.setDiffuseTexture(new BABYLON.Texture(texture, scene))
+
+            this.material.emissiveTexture = new BABYLON.Texture(texture, scene);
+            this.material.emissiveTexture.level = this.starConfig.luminosity;
         }
 
         // Setup particles using the helper function

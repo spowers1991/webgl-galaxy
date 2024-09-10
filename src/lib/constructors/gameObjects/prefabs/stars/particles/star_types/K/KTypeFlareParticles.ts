@@ -23,10 +23,10 @@ export class KTypeFlareParticles {
         this.particleSystem.emitter = mesh;
         this.particleSystem.particleEmitterType = sunEmitter;
 
-        this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 1, 0.5, getRandomNumberBetween(0.05, 0.1)));
+        this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 0.91, 0.251, getRandomNumberBetween(0.05, 0.1)));
         this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(0, 0, 0, 1));
 
-        if(diameter > 2) {
+        if(diameter > 1.5) {
             this.type = "giant"
             this.particleSystem.minScaleX = diameter * getRandomNumberBetween(2, 3);
             this.particleSystem.minScaleY = diameter * getRandomNumberBetween(2, 3);

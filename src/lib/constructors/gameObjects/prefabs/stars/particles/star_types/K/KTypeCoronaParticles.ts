@@ -1,5 +1,5 @@
 import * as BABYLON from 'babylonjs';
-import starAuraTextureGiant from '@/assets/T_Aura_Blue.png';
+import starAuraTextureGiant from '@/assets/T_Aura_Yellow.png';
 import starAuraTextureDwarf from '@/assets/T_SunSurface.png';
 import { getRandomNumberBetween } from '@/utils/getRandomNumberBetween'
 

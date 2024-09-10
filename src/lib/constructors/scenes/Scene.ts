@@ -5,15 +5,14 @@ import { setupClickEvents } from '@/lib/constructors/scenes/actions/setupClickEv
 import { Galaxy } from '@/lib/constructors/gameObjects/prefabs/galaxies/Galaxy';
 
 const sceneConfig: SceneConfig = {
-    numStars: 250,
+    numStars: 150,
     stars: [],
-    maxDiameter: 600,
-    densityFactor: 0.25,
-    galaxyRadius: 600,    // Maximum radius of the galaxy
-    galaxyThickness: 100,  // Thickness of the galaxy in the vertical direction
+    densityFactor: 0.3,
+    galaxyRadius: 300,    // Maximum radius of the galaxy
+    galaxyThickness: 150,  // Thickness of the galaxy in the vertical direction
     numArms: 4,            // Number of spiral arms
     spiralFactor: 5,       // Factor to control the tightness of the spirals
-    clusterRadius: 100,    // Radius for O-type star clusters
+    clusterRadius: 50,    // Radius for O-type star clusters
 };
 
 export default class Scene {

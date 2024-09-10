@@ -2,9 +2,12 @@ import SunSurfaceTexture from '@/assets/T_SunSurfaceTexture.jpg'
 import SunSurfaceTexture2 from '@/assets/T_SunSurfaceTexture_2.jpg'
 import SunSurfaceTexture3 from '@/assets/T_SunSurfaceTexture_3.jpg'
 import SunSurfaceTexture4 from '@/assets/T_SunSurfaceTexture_4.jpg'
-import SunSurfaceTexture5 from '@/assets/T_SunSurfaceTexture_5.jpg'
+import SunSurfaceTexture6 from '@/assets/T_SunSurfaceTexture_6.jpg'
+import SunSurfaceTexture8 from '@/assets/T_SunSurfaceTexture_8.jpg'
+import SunSurfaceTexture9 from '@/assets/T_SunSurfaceTexture_9.jpg'
+import SunSurfaceTexture10 from '@/assets/T_SunSurfaceTexture_10.jpg'
 
-export function getStarTextures( type: String ) {
+export function getStarTextures( type: String , diameter: number) {
 
      // Array of Sun surface texture URLs
      const KSurfaceTextures = [
@@ -12,14 +15,18 @@ export function getStarTextures( type: String ) {
         SunSurfaceTexture2, 
         SunSurfaceTexture3,
         SunSurfaceTexture4,
-        SunSurfaceTexture5
     ];
 
-    const MSurfaceTextures = [
-        SunSurfaceTexture,  
-        SunSurfaceTexture3,
+    const MGiantSurfaceTextures = [
         SunSurfaceTexture4,
-        SunSurfaceTexture5
+        SunSurfaceTexture8,
+        SunSurfaceTexture9,
+        SunSurfaceTexture10
+    ];
+
+    const MDwarfSurfaceTextures = [
+        SunSurfaceTexture,  
+        SunSurfaceTexture6
     ];
 
     if ( type === "K") {
@@ -28,7 +35,16 @@ export function getStarTextures( type: String ) {
     }
     
     if ( type === "M") {
-            const randomTexture = MSurfaceTextures[Math.floor(Math.random() * MSurfaceTextures.length)];
-        return randomTexture;
+        if( diameter > 2.3 ) { 
+                const randomTexture = MGiantSurfaceTextures[Math.floor(Math.random() * MGiantSurfaceTextures.length)];
+            return randomTexture;
+        } else {
+                const randomTexture = MDwarfSurfaceTextures[Math.floor(Math.random() * MDwarfSurfaceTextures.length)];
+            return randomTexture;
+        }
+    }
+
+    else {
+        return SunSurfaceTexture2
     }
 }
