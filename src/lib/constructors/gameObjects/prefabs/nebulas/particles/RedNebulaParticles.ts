@@ -1,6 +1,5 @@
 import * as BABYLON from 'babylonjs';
-import NebulaTexture from '@/assets/T_Nebula_Red.png';
-import { getRandomNumberBetween } from '@/utils/getRandomNumberBetween';
+import NebulaTexture from '@/assets/T_Cluster_Nebula_B.png';
 
 export class RedNebulaParticles {
     public particleSystem: BABYLON.ParticleSystem;
@@ -8,9 +7,9 @@ export class RedNebulaParticles {
 
     constructor(scene: BABYLON.Scene, mesh: BABYLON.Mesh, emitter: BABYLON.IParticleEmitterType) {
 
-        this.particlesCount = Math.round(getRandomNumberBetween(1, 2))
+        this.particlesCount = 5;
 
-        this.particleSystem = new BABYLON.ParticleSystem("T_Nebula_A", this.particlesCount, scene);
+        this.particleSystem = new BABYLON.ParticleSystem("T_Cluster_Nebula_B_Type", this.particlesCount, scene);
 
         this.particleSystem.particleTexture = new BABYLON.Texture(NebulaTexture, scene);
         this.particleSystem.preWarmStepOffset = 10;
@@ -21,12 +20,12 @@ export class RedNebulaParticles {
         this.particleSystem.emitter = mesh;
         this.particleSystem.particleEmitterType = emitter;
 
-        this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 1, 1, getRandomNumberBetween(0.1, 0.25)));
+        this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 1, 1, 1));
 
-        this.particleSystem.minScaleX = 200;
-        this.particleSystem.minScaleY = 200;
-        this.particleSystem.maxScaleX = 200;
-        this.particleSystem.maxScaleY = 200;
+        this.particleSystem.minScaleX = 300;
+        this.particleSystem.minScaleY = 300;
+        this.particleSystem.maxScaleX = 300;
+        this.particleSystem.maxScaleY = 300;
 
         this.particleSystem.minLifeTime = 200.0;
         this.particleSystem.maxLifeTime = 200.0;
@@ -41,7 +40,7 @@ export class RedNebulaParticles {
         this.particleSystem.maxEmitPower = 0.0; // Ensure emit power is zero
         this.particleSystem.updateSpeed = 0.01; // Ensure update speed is high for smooth movement
 
-        this.particleSystem.isBillboardBased = true;
-        this.particleSystem.renderingGroupId = 1;
+        this.particleSystem.isBillboardBased = false;
+        this.particleSystem.renderingGroupId = 3;
     }
 }

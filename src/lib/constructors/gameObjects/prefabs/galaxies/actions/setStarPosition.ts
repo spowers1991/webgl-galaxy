@@ -29,13 +29,20 @@ export function setStarPosition(
             const clusterCenter = { x: baseX, z: baseZ };
             oTypeClusters.push(clusterCenter);
 
+            // Function to randomly pick between "Red" and "Blue"
+            function getRandomNebulaType(): string {
+                return Math.random() < 0.5 ? "Red" : "Blue"; // 50% chance for each type
+            }
+
+            const nebulaType = getRandomNebulaType(); // Randomly pick "Red" or "Blue"
+
             // Create and position a new Nebula at the center of the new cluster
             const nebulaConfig: NebulaConfig = {
                 id: oTypeClusters.length, // Use the cluster length as an ID for uniqueness
                 name: "Nebula",
-                type: "Blue",
+                type: nebulaType,
                 diameter: 10,
-                particles: getParticleSystems(scene, "Blue", null, 10),
+                particles: getParticleSystems(scene, nebulaType, null, 10),
                 color: new BABYLON.Color3(1, 0.5, 0.5), // Example color, adjust as needed
                 luminosity: 1.0 // Example luminosity, adjust as needed
             };

@@ -8,9 +8,9 @@ export class BlueNebulaParticles {
 
     constructor(scene: BABYLON.Scene, mesh: BABYLON.Mesh, emitter: BABYLON.IParticleEmitterType) {
 
-        this.particlesCount = Math.round(getRandomNumberBetween(5, 10))
+        this.particlesCount = Math.round(getRandomNumberBetween(10, 12))
 
-        this.particleSystem = new BABYLON.ParticleSystem("T_Cluster_Nebula_A", this.particlesCount, scene);
+        this.particleSystem = new BABYLON.ParticleSystem("T_Cluster_Nebula_A_Type", this.particlesCount, scene);
 
         this.particleSystem.particleTexture = new BABYLON.Texture(NebulaTexture, scene);
         this.particleSystem.preWarmStepOffset = 10;
@@ -21,7 +21,7 @@ export class BlueNebulaParticles {
         this.particleSystem.emitter = mesh;
         this.particleSystem.particleEmitterType = emitter;
 
-        this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 1, 1, 1));
+        this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 1, 1, 0.5));
 
         this.particleSystem.minScaleX = 500;
         this.particleSystem.minScaleY = 500;
@@ -41,7 +41,7 @@ export class BlueNebulaParticles {
         this.particleSystem.maxEmitPower = 0.0; // Ensure emit power is zero
         this.particleSystem.updateSpeed = 0.01; // Ensure update speed is high for smooth movement
 
-        this.particleSystem.isBillboardBased = true;
+        this.particleSystem.isBillboardBased = false;
         this.particleSystem.renderingGroupId = 1;
     }
 }
