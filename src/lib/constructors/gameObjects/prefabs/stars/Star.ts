@@ -1,6 +1,7 @@
 import * as BABYLON from 'babylonjs';
 import GameObject from '@/lib/constructors/gameObjects/GameObject';
 import sceneState from '@/lib/constructors/scenes/SceneState';
+import cameraState from '@/lib/constructors/cameras/CameraState';
 import { autorun } from 'mobx';
 import { StarConfig } from '@/lib/constructors/gameObjects/prefabs/stars/configs/starConfig';
 import { setupParticleEmitters } from './helpers/setupParticleEmitters';
@@ -45,14 +46,17 @@ export default class Star extends GameObject {
 
         // Observe global state changes
         this.observeGlobalState();
+
+        // Observe Babylon frame change
+        this.observeFrameUpdate()
     }
 
-    // Observable global state for active Stars
+    // Observable global state
     private observeGlobalState() {
         autorun(() => {
             const objectsToRender = sceneState.getObjectsToRender().slice();
             const objectInView = objectsToRender.some(obj => obj === this.mesh);
-            
+           // console.log(cameraState.cameraCurrentRange)
             if (objectInView) {
 
                 // Start particles if the condition is met
@@ -73,6 +77,20 @@ export default class Star extends GameObject {
                 this.surfaceParticles.stop();
                 this.flareParticles.stop();
                 this.coronaParticles.stop();
+            }
+        });
+    }
+
+    // Observe every frame
+    private observeFrameUpdate() {
+        this.scene.onBeforeRenderObservable.add(() => {
+            const objectsToRender = sceneState.getObjectsToRender().slice();
+            const objectInView = objectsToRender.some(obj => obj === this.mesh);
+            if (objectInView) {
+                this.material.alpha = 1;
+            } else {  
+                // set star exposure effect when zoomed in
+                this.material.alpha = cameraState.cameraCurrentRange  ? ( cameraState.cameraCurrentRange / 200 ) : this.material.alpha = 1;
             }
         });
     }
