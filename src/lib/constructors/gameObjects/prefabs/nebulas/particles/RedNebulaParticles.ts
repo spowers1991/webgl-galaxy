@@ -1,5 +1,5 @@
 import * as BABYLON from 'babylonjs';
-import NebulaTexture from '@/assets/T_Cluster_Nebula_B.png';
+import NebulaTexture from '@/assets/T_Cluster_Nebula_B.webp';
 
 export class RedNebulaParticles {
     public particleSystem: BABYLON.ParticleSystem;

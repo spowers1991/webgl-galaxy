@@ -1,12 +1,10 @@
 import * as BABYLON from 'babylonjs';
 import Camera from '@/lib/constructors/cameras/Camera';
-import Scene from '@/lib/constructors/scenes/Scene';
 import sceneState from '@/lib/constructors/scenes/SceneState';
 import cameraState from '@/lib/constructors/cameras/CameraState';
 import { findClosestMeshes } from '@/lib/constructors/scenes/helpers/findClosestMeshes'; 
 
-export function setupClickEvents(Scene: Scene, camera: Camera) {
-    const scene = Scene.getScene(); // Get the BABYLON.Scene instance
+export function updateClickEvents(scene: BABYLON.Scene, camera: Camera) {
 
     scene.onPointerObservable.add((pointerInfo) => {
         if (pointerInfo.type === BABYLON.PointerEventTypes.POINTERPICK) {

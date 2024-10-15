@@ -1,11 +1,13 @@
-import SunSurfaceTexture from '@/assets/T_SunSurfaceTexture.jpg'
-import SunSurfaceTexture2 from '@/assets/T_SunSurfaceTexture_2.jpg'
-import SunSurfaceTexture3 from '@/assets/T_SunSurfaceTexture_3.jpg'
-import SunSurfaceTexture4 from '@/assets/T_SunSurfaceTexture_4.jpg'
-import SunSurfaceTexture6 from '@/assets/T_SunSurfaceTexture_6.jpg'
-import SunSurfaceTexture8 from '@/assets/T_SunSurfaceTexture_8.jpg'
-import SunSurfaceTexture9 from '@/assets/T_SunSurfaceTexture_9.jpg'
-import SunSurfaceTexture10 from '@/assets/T_SunSurfaceTexture_10.jpg'
+import SunSurfaceTexture from '@/assets/T_SunSurfaceTexture.webp'
+import SunSurfaceTexture2 from '@/assets/T_SunSurfaceTexture_2.webp'
+import SunSurfaceTexture3 from '@/assets/T_SunSurfaceTexture_3.webp'
+import SunSurfaceTexture4 from '@/assets/T_SunSurfaceTexture_4.webp'
+import SunSurfaceTexture6 from '@/assets/T_SunSurfaceTexture_6.webp'
+import SunSurfaceTexture8 from '@/assets/T_SunSurfaceTexture_8.webp'
+import SunSurfaceTexture9 from '@/assets/T_SunSurfaceTexture_9.webp'
+import SunSurfaceTexture10 from '@/assets/T_SunSurfaceTexture_10.webp'
+import SunSurfaceTexture11 from '@/assets/T_SunSurfaceTexture_11.webp'
+import SunSurfaceTexture12 from '@/assets/T_SunSurfaceTexture_12.webp'
 
 export function getStarTextures( type: String , diameter: number) {
 
@@ -15,18 +17,20 @@ export function getStarTextures( type: String , diameter: number) {
         SunSurfaceTexture2, 
         SunSurfaceTexture3,
         SunSurfaceTexture4,
+        SunSurfaceTexture11,
+        SunSurfaceTexture12,
     ];
 
     const MGiantSurfaceTextures = [
         SunSurfaceTexture4,
         SunSurfaceTexture8,
         SunSurfaceTexture9,
-        SunSurfaceTexture10
+        SunSurfaceTexture10,
     ];
 
     const MDwarfSurfaceTextures = [
         SunSurfaceTexture,  
-        SunSurfaceTexture6
+        SunSurfaceTexture6,
     ];
 
     if ( type === "K") {
@@ -35,7 +39,7 @@ export function getStarTextures( type: String , diameter: number) {
     }
     
     if ( type === "M") {
-        if( diameter > 2.3 ) { 
+        if( diameter > 2 ) { 
                 const randomTexture = MGiantSurfaceTextures[Math.floor(Math.random() * MGiantSurfaceTextures.length)];
             return randomTexture;
         } else {

@@ -1,13 +1,14 @@
 import * as BABYLON from 'babylonjs';
 import Camera from '@/lib/constructors/cameras/Camera';
-import { SceneConfig } from '@/lib/constructors/scenes/configs/SceneConfig';
-import { setupClickEvents } from '@/lib/constructors/scenes/actions/setupClickEvents';
+import { SceneConfig } from './configs/SceneConfig';
+import { updateClickEvents } from './actions/updateClickEvents';
+import { updateScrollEvents } from './actions/updateScrollEvents';
 import { Galaxy } from '@/lib/constructors/gameObjects/prefabs/galaxies/Galaxy';
 
 const sceneConfig: SceneConfig = {
-    numStars: 150,
+    numStars: 100,
     stars: [],
-    densityFactor: 0.3,
+    densityFactor: 0.5,
     galaxyRadius: 300,    // Maximum radius of the galaxy
     galaxyThickness: 150,  // Thickness of the galaxy in the vertical direction
     numArms: 4,            // Number of spiral arms
@@ -29,15 +30,15 @@ export default class Scene {
         const backgroundColor = new BABYLON.Color4(0, 0, 0, 1);
         this.camera = new Camera(this.scene, canvas, "Main Camera", backgroundColor);
 
-        // Create the glow layer and add it to the scene
         this.glowLayer = new BABYLON.GlowLayer("glow", this.scene);
-        this.glowLayer.intensity = 1.25; // Adjust intensity for performance
+        this.glowLayer.intensity = 1.25; 
 
         const galaxy = new Galaxy(this.scene, sceneConfig);
         galaxy.generate();
 
-        // Set up click event listener
-        setupClickEvents(this, this.camera); // Pass `this` (the current scene instance)
+        updateClickEvents(this.scene, this.camera);
+        
+        updateScrollEvents(this.scene, this.camera);
         
     }
 

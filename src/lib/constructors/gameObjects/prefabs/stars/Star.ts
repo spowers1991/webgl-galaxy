@@ -76,7 +76,15 @@ export default class Star extends GameObject {
                 // Optionally, you can stop particles if the condition is not met
                 this.surfaceParticles.stop();
                 this.flareParticles.stop();
-                this.coronaParticles.stop();
+                // Keep Coronas switched on for certain start types
+                if (this.starConfig.type === "O" || this.starConfig.type === "K" || this.starConfig.type === "M"){ 
+                    this.coronaParticles.start();
+                } else {
+                    this.coronaParticles.stop();
+                }
+                this.surfaceParticles.reset();
+                this.flareParticles.reset();
+                this.coronaParticles.reset();
             }
         });
     }

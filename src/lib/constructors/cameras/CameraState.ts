@@ -1,6 +1,7 @@
 import { makeObservable, observable, action } from 'mobx';
-import * as BABYLON from 'babylonjs';
-import { getCameraCurrentRange } from '../scenes/actions/setupScrollEvents';
+import Scene from '../scenes/Scene';
+import Camera from './Camera';
+import { updateScrollEvents } from '../scenes/actions/updateScrollEvents';
 
 export class CameraState {
     cameraCurrentRange: number | null = null;
@@ -13,8 +14,8 @@ export class CameraState {
         });
     }
 
-    getCameraCurrentRange(scene: BABYLON.Scene, camera: BABYLON.ArcRotateCamera) {
-        getCameraCurrentRange(scene, camera); 
+    getCameraCurrentRange(scene: any, camera: any) {
+        updateScrollEvents(scene, camera); 
     }
 
     setCameraCurrentRange(distance: number) {
