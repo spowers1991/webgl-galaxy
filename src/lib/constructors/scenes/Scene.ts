@@ -39,7 +39,7 @@ export default class Scene {
         updateClickEvents(this.scene, this.camera);
         
         updateScrollEvents(this.scene, this.camera);
-        
+
     }
 
     getScene(): BABYLON.Scene {

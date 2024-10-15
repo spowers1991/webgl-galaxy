@@ -96,9 +96,20 @@ export default class Star extends GameObject {
             const objectInView = objectsToRender.some(obj => obj === this.mesh);
             if (objectInView) {
                 this.material.alpha = 1;
+                if (this.starConfig.type === "M" || this.starConfig.type === "K"){ 
+                    // stars increase in brightness when further away.
+                    if(cameraState.cameraCurrentRange < 50){
+                        this.material.emissiveTexture.level = (this.starConfig.luminosity / 20) * cameraState.cameraCurrentRange;
+                    } else {
+                        this.material.emissiveTexture.level = this.starConfig.luminosity * 4
+                    }
+                }
             } else {  
                 // set star exposure effect when zoomed in
                 this.material.alpha = cameraState.cameraCurrentRange  ? ( cameraState.cameraCurrentRange / 200 ) : this.material.alpha = 1;
+                if (this.starConfig.type === "M" || this.starConfig.type === "K"){ 
+                    this.material.emissiveTexture.level = this.starConfig.luminosity * 2
+                }
             }
         });
     }
