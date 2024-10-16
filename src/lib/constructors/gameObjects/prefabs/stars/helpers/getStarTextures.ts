@@ -8,6 +8,8 @@ import SunSurfaceTexture9 from '@/assets/T_SunSurfaceTexture_9.webp'
 import SunSurfaceTexture10 from '@/assets/T_SunSurfaceTexture_10.webp'
 import SunSurfaceTexture11 from '@/assets/T_SunSurfaceTexture_11.webp'
 import SunSurfaceTexture12 from '@/assets/T_SunSurfaceTexture_12.webp'
+import SunSurfaceTexture13 from '@/assets/SunSurfaceTexture_13.webp'
+import SunSurfaceTexture14 from '@/assets/T_SunSurfaceTexture_14.webp'
 
 export function getStarTextures( type: String , diameter: number) {
 
@@ -26,11 +28,14 @@ export function getStarTextures( type: String , diameter: number) {
         SunSurfaceTexture8,
         SunSurfaceTexture9,
         SunSurfaceTexture10,
+        SunSurfaceTexture13,
+        SunSurfaceTexture14
     ];
 
     const MDwarfSurfaceTextures = [
-        SunSurfaceTexture,  
-        SunSurfaceTexture6,
+     SunSurfaceTexture,  
+      SunSurfaceTexture6,
+      SunSurfaceTexture14
     ];
 
     if ( type === "K") {

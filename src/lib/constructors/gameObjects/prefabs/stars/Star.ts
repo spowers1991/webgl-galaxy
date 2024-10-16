@@ -98,10 +98,10 @@ export default class Star extends GameObject {
                 this.material.alpha = 1;
                 if (this.starConfig.type === "M" || this.starConfig.type === "K"){ 
                     // stars increase in brightness when further away.
-                    if(cameraState.cameraCurrentRange < 50){
-                        this.material.emissiveTexture.level = (this.starConfig.luminosity / 20) * cameraState.cameraCurrentRange;
+                    if(cameraState.cameraCurrentRange < 100){
+                        this.material.emissiveTexture.level = (this.starConfig.luminosity / 50) * cameraState.cameraCurrentRange;
                     } else {
-                        this.material.emissiveTexture.level = this.starConfig.luminosity * 4
+                        this.material.emissiveTexture.level = this.starConfig.luminosity * 2
                     }
                 }
             } else {  
