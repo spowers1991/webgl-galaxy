@@ -12,10 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     engine.runRenderLoop(() => {
         scene.render();
     });
-    
-    engine.setHardwareScalingLevel(1);
-    engine.enableOfflineSupport = false;
-    engine.getCaps().textureFloat = true; // Ensure float textures are supported
 
     window.addEventListener('resize', () => {
         engine.resize();
