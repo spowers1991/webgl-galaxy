@@ -10,6 +10,8 @@ import SunSurfaceTexture11 from '@/assets/T_SunSurfaceTexture_11.webp'
 import SunSurfaceTexture12 from '@/assets/T_SunSurfaceTexture_12.webp'
 import SunSurfaceTexture13 from '@/assets/SunSurfaceTexture_13.webp'
 import SunSurfaceTexture14 from '@/assets/T_SunSurfaceTexture_14.webp'
+import SunSurfaceTexture15 from '@/assets/T_SunSurfaceTexture_15.webp'
+import SunSurfaceTexture16 from '@/assets/T_SunSurfaceTexture_16.webp'
 
 export function getStarTextures( type: String , diameter: number) {
 
@@ -33,10 +35,18 @@ export function getStarTextures( type: String , diameter: number) {
     ];
 
     const MDwarfSurfaceTextures = [
-     SunSurfaceTexture,  
+      SunSurfaceTexture,  
       SunSurfaceTexture6,
       SunSurfaceTexture14
     ];
+
+    const GSurfaceTextures = [
+        SunSurfaceTexture16, 
+    ]
+
+    const BSurfaceTextures = [
+        SunSurfaceTexture15, 
+    ]
 
     if ( type === "K") {
             const randomTexture = KSurfaceTextures[Math.floor(Math.random() * KSurfaceTextures.length)];
@@ -51,6 +61,16 @@ export function getStarTextures( type: String , diameter: number) {
                 const randomTexture = MDwarfSurfaceTextures[Math.floor(Math.random() * MDwarfSurfaceTextures.length)];
             return randomTexture;
         }
+    }
+
+    if( type === "G" ){
+        const randomTexture = GSurfaceTextures[Math.floor(Math.random() * GSurfaceTextures.length)];
+            return randomTexture;
+    }
+
+    if( type === "B" ){
+        const randomTexture = BSurfaceTextures[Math.floor(Math.random() * BSurfaceTextures.length)];
+            return randomTexture;
     }
 
     else {

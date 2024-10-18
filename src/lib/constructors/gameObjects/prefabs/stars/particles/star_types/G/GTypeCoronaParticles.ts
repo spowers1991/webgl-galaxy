@@ -19,12 +19,12 @@ export class GTypeCoronaParticles {
         this.particleSystem.emitter = mesh;
         this.particleSystem.particleEmitterType = emitter;
 
-        this.particleSystem.addColorGradient(0.0, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.1, 0.35)));
+        this.particleSystem.addColorGradient(0.0, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.2, 0.4)));
 
-        this.particleSystem.minScaleX = getRandomNumberBetween(1, 5);
-        this.particleSystem.minScaleY = getRandomNumberBetween(3, 6);
-        this.particleSystem.maxScaleX = getRandomNumberBetween(3, 5);
-        this.particleSystem.maxScaleY = getRandomNumberBetween(3, 6);
+        this.particleSystem.minScaleX = getRandomNumberBetween(10, 15);
+        this.particleSystem.minScaleY = getRandomNumberBetween(10, 15);
+        this.particleSystem.maxScaleX = getRandomNumberBetween(10, 15);
+        this.particleSystem.maxScaleY = getRandomNumberBetween(10, 15);
 
         this.particleSystem.minLifeTime = 10.0;
         this.particleSystem.maxLifeTime = 20.0;

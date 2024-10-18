@@ -29,7 +29,7 @@ export default class Star extends GameObject {
 
         const texture = getStarTextures(this.starConfig.type, this.starConfig.diameter);
 
-        if (this.starConfig.type === "M" || this.starConfig.type === "K"){ 
+        if (this.starConfig.type === "M" || this.starConfig.type === "K"|| this.starConfig.type === "G" || this.starConfig.type === "B" ){ 
             this.setNormalTexture(new BABYLON.Texture(texture, scene))
             this.setDiffuseTexture(new BABYLON.Texture(texture, scene))
 
@@ -96,10 +96,10 @@ export default class Star extends GameObject {
             const objectInView = objectsToRender.some(obj => obj === this.mesh);
             if (objectInView) {
                 this.material.alpha = 1;
-                if (this.starConfig.type === "M" || this.starConfig.type === "K"){ 
+                if (this.starConfig.type === "M" || this.starConfig.type === "K" || this.starConfig.type === "G" || this.starConfig.type === "B"){ 
                     // stars increase in brightness when further away.
                     if(cameraState.cameraCurrentRange < 100){
-                        this.material.emissiveTexture.level = (this.starConfig.luminosity / 50) * cameraState.cameraCurrentRange;
+                        this.material.emissiveTexture.level = (this.starConfig.luminosity / 40) * cameraState.cameraCurrentRange;
                     } else {
                         this.material.emissiveTexture.level = this.starConfig.luminosity * 2
                     }
@@ -107,7 +107,7 @@ export default class Star extends GameObject {
             } else {  
                 // set star exposure effect when zoomed in
                 this.material.alpha = cameraState.cameraCurrentRange  ? ( cameraState.cameraCurrentRange / 200 ) : this.material.alpha = 1;
-                if (this.starConfig.type === "M" || this.starConfig.type === "K"){ 
+                if (this.starConfig.type === "M" || this.starConfig.type === "K" || this.starConfig.type === "G" || this.starConfig.type === "B"){ 
                     this.material.emissiveTexture.level = this.starConfig.luminosity * 2
                 }
             }
