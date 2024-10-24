@@ -3,7 +3,7 @@ import Scene from '../scenes/Scene';
 import { updateUI } from './actions/updateUI'; 
 
 // Components
-import StarsListing from './views/StarsListing';
+import Filter from '@/components/filters/Filter';
 
 export default class UIEngine {
     private rootElement: HTMLElement;
@@ -13,7 +13,7 @@ export default class UIEngine {
         this.rootElement = document.getElementById(rootElementId) as HTMLElement
 
         this.components = [
-            { id: 'ui-section', content: StarsListing(data, camera, scene) },
+            { id: 'filter', content: Filter(data, camera, scene) },
             // Add more components if necessary
         ];
 
