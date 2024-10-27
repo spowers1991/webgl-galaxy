@@ -6,7 +6,7 @@ import Filters from '@/lib/constructors/filters/Filters';
 import FilterSelect from './selectors/FilterSelect';
 import { getPropertiesToFilter } from './helpers/getPropertiesToFilter';
 import { FilteredListings } from './FilterListing';
-import { getResultsCount } from './helpers/getResultsCount';
+import { CurrentFilterInfo } from './CurrentFilterInfo';
 
 export default function Filter(items: Star[], camera: Camera, scene: Scene) {
 
@@ -24,25 +24,28 @@ export default function Filter(items: Star[], camera: Camera, scene: Scene) {
         const index = selectedOptions.findIndex(option => option[property] !== undefined);
         if (index !== -1) {
             selectedOptions[index][property] = value;
+            
             filters.updateFilter(selectedOptions);
-
             // Re-render the stars after filtering
-            getResultsCount(filters, selectedOptions);
+            CurrentFilterInfo(filters, propertiesToFilter, selectedOptions);
             
             FilteredListings(filters, camera, scene);
         }
     };
 
-    setTimeout(() => FilteredListings(filters, camera, scene), 0);
+    setTimeout(() => {
+        CurrentFilterInfo(filters, propertiesToFilter, selectedOptions);
+        FilteredListings(filters, camera, scene); 
+    }, 0);
 
     return html`
-        <div class="filtered-listing" style="display: flex; flex-direction: column; gap: 10px; padding: 20px; max-height: 400px; position: relative;">
+        <div class="filtered-listing" style="display: flex; flex-direction: column; gap: 20px; padding: 20px; max-height: 400px; position: relative; background: rgba(0,0,0, 0.7); border: 2px solid #ccc; overflow: hidden;">
         
-            <div class="filters" style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 10px; padding-bottom: 10px;">
+            <div class="filters" style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 10px;">
                 ${FilterSelect({ propertiesToFilter, handleFilterChange })}
             </div>
             <div class="items-count" style="display: flex; flex-direction: column; gap: 5px;">
-                
+                No Search Terms Set.
             </div>
             <div class="container filtered-container" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; overflow-y:scroll">
                 <!-- Stars will be rendered here based on filter -->

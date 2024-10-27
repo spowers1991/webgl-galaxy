@@ -27,8 +27,6 @@ export default class Filters {
                 return matches;
             });
         });
-        
-        console.log('Filtered Items:', this.filteredItems);
     }
 
     getFilteredItems() {

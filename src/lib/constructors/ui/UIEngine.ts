@@ -1,8 +1,9 @@
 import Camera from '@/lib/constructors/cameras/Camera';
-import Scene from '../scenes/Scene';
-import { updateUI } from './actions/updateUI'; 
+import Scene from '@/lib/constructors/scenes/Scene';
+import { renderUI } from './actions/renderUI'; 
 
 // Components
+import ObjectInfo from '@/components/object-info/ObjectInfo';
 import Filter from '@/components/filters/Filter';
 
 export default class UIEngine {
@@ -13,6 +14,7 @@ export default class UIEngine {
         this.rootElement = document.getElementById(rootElementId) as HTMLElement
 
         this.components = [
+            { id: 'object-info', content: ObjectInfo('starConfig') },
             { id: 'filter', content: Filter(data, camera, scene) },
             // Add more components if necessary
         ];
@@ -22,7 +24,7 @@ export default class UIEngine {
     }
 
     private initialize(data: Object[]) {
-        updateUI(this.rootElement, data, this.components);
+        renderUI(this.rootElement, data, this.components);
     }
 }
 

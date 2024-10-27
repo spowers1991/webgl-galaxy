@@ -10,7 +10,7 @@ export class KTypeCoronaParticles {
 
     constructor(scene: BABYLON.Scene, mesh: BABYLON.Mesh, emitter: BABYLON.IParticleEmitterType, diameter: number) {
 
-        this.particleSystem = new BABYLON.ParticleSystem("coronaParticles", 5, scene);
+        this.particleSystem = new BABYLON.ParticleSystem("coronaParticles", 10, scene);
 
         this.particleSystem.preWarmStepOffset = 10;
         this.particleSystem.preWarmCycles = 1000;
@@ -23,12 +23,11 @@ export class KTypeCoronaParticles {
         if(diameter > 2) {
             this.type = "giant"
                 this.particleSystem.particleTexture = new BABYLON.Texture(starAuraTextureGiant, scene);
-                this.particleSystem.minScaleX = diameter * getRandomNumberBetween(5, 10)
-                this.particleSystem.minScaleY = diameter * getRandomNumberBetween(5, 10)
-                this.particleSystem.maxScaleX = diameter * getRandomNumberBetween(5, 10)
-                this.particleSystem.maxScaleY = diameter * getRandomNumberBetween(5, 10)
+                this.particleSystem.minScaleX = diameter * getRandomNumberBetween(10, 20)
+                this.particleSystem.minScaleY = diameter * getRandomNumberBetween(10, 20)
+                this.particleSystem.maxScaleX = diameter * getRandomNumberBetween(10, 20)
+                this.particleSystem.maxScaleY = diameter * getRandomNumberBetween(10, 20)
                 this.particleSystem.addColorGradient(0.0, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.1, 0.5)));
-                this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(0, 0, 0.5,  getRandomNumberBetween(0.1, 0.75)));
         }
         else {
             this.type = "dwarf"
@@ -37,8 +36,6 @@ export class KTypeCoronaParticles {
                 this.particleSystem.minScaleY = getRandomNumberBetween(1, 3);
                 this.particleSystem.maxScaleX = getRandomNumberBetween(1, 3);
                 this.particleSystem.maxScaleY = getRandomNumberBetween(1, 3);
-                this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 1, 0.5, getRandomNumberBetween(0.009, 0.01)));
-                this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.1, 0.03)));
                 this.particleSystem.addColorGradient(1.0, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.01, 0.02)));
         }
 
