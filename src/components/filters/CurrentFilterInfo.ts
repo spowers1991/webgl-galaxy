@@ -1,8 +1,8 @@
 import Filters from "@/lib/constructors/filters/Filters";
 
 export function CurrentFilterInfo(filters: Filters, propertiesToFilter: any[], selectedOptions: any[]) {
-    const itemFilters = filters.getFilteredItems();
-    const itemsCount = document.querySelector('.items-count');
+    const itemsToFilter = filters.getFilteredItems();
+    const itemsCountContainter = document.querySelector('.items-count');
     
     let selectedOptionsInfo = '';
 
@@ -29,15 +29,16 @@ export function CurrentFilterInfo(filters: Filters, propertiesToFilter: any[], s
             }
         }
     }
-    
-    itemsCount.innerHTML = 
-    `
-    <div style="font-size: 24px;">
-            ${itemFilters.length} 
-        <span style="font-size: 14px; opacity: 0.8">
-         results
-        </span>
-    </div>
-    `
-    +selectedOptionsInfo+``;
+    if( itemsCountContainter ) {
+        itemsCountContainter.innerHTML = 
+        `
+        <div style="font-size: 24px;">
+                ${itemsToFilter.length} 
+            <span style="font-size: 14px; opacity: 0.8">
+            results
+            </span>
+        </div>
+        `
+        +selectedOptionsInfo+``;
+    }
 }

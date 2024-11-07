@@ -3,9 +3,9 @@ import Camera from '@/lib/constructors/cameras/Camera';
 import Scene from '@/lib/constructors/scenes/Scene';
 import sceneState from '@/lib/constructors/scenes/SceneState';
 
-export function focusOnObject(star: any, camera: Camera, scene: Scene) {
+export function focusOnObject(object: any, camera: Camera, scene: Scene) {
     const babylonScene = scene.getScene();
-    sceneState.setActiveObject(star);
-    sceneState.setObjectsToRender(findClosestMeshes(babylonScene, star.mesh));
-    camera.focusOnMesh(star.mesh, 150, 1000);
+    sceneState.setActiveObject(object);
+    sceneState.setObjectsToRender(findClosestMeshes(babylonScene, object.mesh));
+    camera.focusOnMesh(object.mesh, 150, 1000);
 }

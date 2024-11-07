@@ -4,7 +4,7 @@ import sceneState from '@/lib/constructors/scenes/SceneState';
 import Camera from '@/lib/constructors/cameras/Camera';
 import Star from '@//lib/constructors/gameObjects/prefabs/stars/Star';
 import { html } from '@/utils/html';
-import { focusOnObject } from '@/lib/constructors/ui/helpers/focusOnObject';
+import { focusOnObject } from '@/lib/constructors/ui/actions/focusOnObject';
 
 export default function FilterListingItem(item: Star, index: number, camera: Camera, scene: Scene) {
 

@@ -41,7 +41,7 @@ export default class Scene {
         
         updateScrollEvents(this.scene, this.camera);
 
-        const UI = new UIEngine('ui-container', this.config.stars, this.camera, this);
+        new UIEngine('ui-container', this.config.stars, this.camera, this);
 
     }
 

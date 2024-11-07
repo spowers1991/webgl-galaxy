@@ -4,7 +4,7 @@ import Filters from '@/lib/constructors/filters/Filters';
 import FilterListingItem from './FilterListingItem';
 import Star from '@/lib/constructors/gameObjects/prefabs/stars/Star';
 
-export function FilteredListings( filters: Filters, camera: Camera, scene: Scene ) {
+export function FilteredListing( filters: Filters, camera: Camera, scene: Scene ) {
     if( filters ){
         const filteredItems = filters.getFilteredItems();
         const filtersContainer = document.querySelector('.filtered-container');

@@ -1,13 +1,13 @@
 export default function ObjectInfoProperties(activeObject: any, property: string) {
     if (!activeObject || !activeObject[property]) {
-        return 'No active star';
+        return;
     }
 
     const starInfo = activeObject[property];
-    return `
+    const content = `
         <div>
             <span style="font-size: 16px; opacity: 0.8">Name: </span>
-            <span style="font-size: 24px;">${starInfo.name}</span>
+            <span style="font-size: 24px;">${starInfo.generatedName}</span>
         </div>
         <div>
             <span style="font-size: 16px; opacity: 0.8">Surface Temperature:</span>
@@ -20,4 +20,5 @@ export default function ObjectInfoProperties(activeObject: any, property: string
             <span style="font-size: 16px; opacity: 0.8"> R&#x2299;</span>
         </div>
     `;
+    return content
 }
