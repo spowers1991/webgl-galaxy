@@ -1,14 +1,12 @@
-import { autorun } from 'mobx'; 
 import Scene from '@/lib/constructors/scenes/Scene'; 
-import sceneState from '@/lib/constructors/scenes/SceneState'; 
 import Camera from '@/lib/constructors/cameras/Camera';
 import Star from '@//lib/constructors/gameObjects/prefabs/stars/Star';
 import { html } from '@/utils/html';
 import { focusOnObject } from '@/lib/constructors/ui/actions/focusOnObject';
 
-export default function FilterListingItem(item: Star, index: number, camera: Camera, scene: Scene) {
+export default function FilteredListingsItem(item: Star, index: number, camera: Camera, scene: Scene) {
 
-    const starHtml = html`
+    const itemHtml = html`
         <div id="item-${index || '0'}" style="cursor: pointer; padding: 15px; border: 1px solid #fff;">
             <div style="display: flex; flex-direction: column; gap: 10px; height: 100%;">
                 <div>
@@ -33,5 +31,5 @@ export default function FilterListingItem(item: Star, index: number, camera: Cam
         }
     }, 0);
 
-    return starHtml;
+    return itemHtml;
 }

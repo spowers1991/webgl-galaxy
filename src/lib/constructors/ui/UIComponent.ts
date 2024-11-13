@@ -5,8 +5,8 @@ export default class UIComponent {
     public content: string;
     public uiElement: HTMLElement;
 
-    constructor(rootElement: HTMLElement, id: string, data: Object, content: any) {
-        this.id = id;
+    constructor(rootElement: HTMLElement, name: string, data: Object, content: any) {
+        this.id = name;
         this.content = content;
 
         // Create the UI element

@@ -5,7 +5,7 @@ import { html } from '@/utils/html';
 import Filters from '@/lib/constructors/filters/Filters';
 import FilterSelect from './selectors/FilterSelect';
 import { getPropertiesToFilter } from './helpers/getPropertiesToFilter';
-import { FilteredListing } from './FilterListing';
+import { FilteredListings } from './FilteredListings';
 import { CurrentFilterInfo } from './CurrentFilterInfo';
 
 export default function Filter(items: Star[], camera: Camera, scene: Scene) {
@@ -25,7 +25,7 @@ export default function Filter(items: Star[], camera: Camera, scene: Scene) {
                     ${CurrentFilterInfo(filters, propertiesToFilter, selectedOptions)} 
                 </div>
                 <div class="container filtered-container" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; overflow-y:scroll">
-                    ${FilteredListing(filters, camera, scene)}
+                    ${FilteredListings(filters, camera, scene)}
                 </div>
 
             </div>
