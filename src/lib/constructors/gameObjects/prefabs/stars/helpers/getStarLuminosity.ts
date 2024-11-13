@@ -5,22 +5,22 @@ export function getStarLuminosity(type: string, diameter: number): number {
 
     switch(type) {
         case 'O':
-            return getRandomNumberBetween(3, 15); // Range for O-type stars
+            return getRandomNumberBetween(3, 15); 
         case 'B':
-            return getRandomNumberBetween(1.5, 3.25); // Range for B-type stars
+            return getRandomNumberBetween(1.5, 3.25); 
         case 'A':
-            return getRandomNumberBetween(1, 1.5); // Range for A-type stars
+            return getRandomNumberBetween(1, 1.5); 
         case 'F':
-            return getRandomNumberBetween(1, 1.25); // Range for F-type stars
+            return getRandomNumberBetween(1, 1.25); 
         case 'G':
-            return getRandomNumberBetween(1.5, 2); // Range for G-type stars
+            return getRandomNumberBetween(2.5, 3); 
         case 'K':
-            return getRandomNumberBetween(1, 2); // Range for K-type stars
+            return getRandomNumberBetween(2, 2.5);
         case 'M':
             if(diameter > 1) {
-                return getRandomNumberBetween(0.7, 1.5); // Example range for M-type stars
+                return getRandomNumberBetween(0.7, 1.5); 
             } else {
-                return getRandomNumberBetween(0.5, 0.8); // Example range for M-type stars
+                return getRandomNumberBetween(0.5, 0.8); 
             }
         default:
             throw new Error(`Unsupported star type: ${type}`);

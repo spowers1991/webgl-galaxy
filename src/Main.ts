@@ -4,10 +4,10 @@ import Scene from './lib/constructors/scenes/Scene';
 import 'babylonjs-inspector';
 
 document.addEventListener('DOMContentLoaded', () => {
-    const canvas = document.getElementById('renderCanvas') as HTMLCanvasElement;
-    const engine = new BABYLON.Engine(canvas, true);
+    const canvas = document.getElementById('renderCanvas') as unknown;
+    const engine = new BABYLON.Engine(canvas as HTMLCanvasElement, true);
 
-    let scene = new Scene(engine, canvas).getScene();
+    let scene = new Scene(engine, canvas as HTMLCanvasElement).getScene();
 
     engine.runRenderLoop(() => {
         scene.render();

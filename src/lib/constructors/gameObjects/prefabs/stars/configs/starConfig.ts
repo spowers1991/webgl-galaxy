@@ -12,5 +12,8 @@ export interface StarConfig {
     color: BABYLON.Color3;
     luminosity: number;
     mass: number;
+    generatedName: string;
+    radius: number;
+    surfaceTemperature: number;
     particles: ParticleSystems; 
 }

@@ -4,6 +4,7 @@ import { SceneConfig } from './configs/SceneConfig';
 import { updateClickEvents } from './actions/updateClickEvents';
 import { updateScrollEvents } from './actions/updateScrollEvents';
 import { Galaxy } from '@/lib/constructors/gameObjects/prefabs/galaxies/Galaxy';
+import UIEngine from '@/lib/constructors/ui/UIEngine';
 
 const sceneConfig: SceneConfig = {
     numStars: 100,
@@ -39,6 +40,8 @@ export default class Scene {
         updateClickEvents(this.scene, this.camera);
         
         updateScrollEvents(this.scene, this.camera);
+
+        //new UIEngine('ui-container', this.config.stars, this.camera, this);
 
     }
 

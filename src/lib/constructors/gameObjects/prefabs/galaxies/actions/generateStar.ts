@@ -6,7 +6,10 @@ import { getParticleSystems } from '@/lib/constructors/gameObjects/prefabs/stars
 import { getStarColor } from '@/lib/constructors/gameObjects/prefabs/stars/helpers/getStarColor';
 import { getStarDiameter } from '@/lib/constructors/gameObjects/prefabs/stars/helpers/getStarDiameter';
 import { getStarLuminosity } from '@/lib/constructors/gameObjects/prefabs/stars/helpers/getStarLuminosity';
-import { getStarMass } from '../../stars/helpers/getStarMass';
+import { getStarMass } from '@/lib/constructors/gameObjects/prefabs/stars/helpers/getStarMass';
+import { getStarRadius } from '@/lib/constructors/gameObjects/prefabs/stars/helpers/getStarRadius';
+import { getStarSurfaceTemperature } from '@/lib/constructors/gameObjects/prefabs/stars/helpers/getStarSurfaceTemperature';
+import { generateRandomStarName } from '@/utils/generateRandomStarName';
 
 export function generateStar(
     scene: BABYLON.Scene, 
@@ -18,6 +21,7 @@ export function generateStar(
     starType: string
 ) {
     const diameter = getStarDiameter(starType);
+
     const starConfig: StarConfig = {
         id: id,
         name: "Star " + id,
@@ -26,6 +30,9 @@ export function generateStar(
         color: getStarColor(starType, diameter),
         luminosity: getStarLuminosity(starType, diameter),
         mass: getStarMass(starType, diameter),
+        generatedName: generateRandomStarName(),
+        radius: getStarRadius(starType, diameter),
+        surfaceTemperature: getStarSurfaceTemperature(starType, diameter),
         particles: getParticleSystems(scene, starType, null, diameter),
     };
 
