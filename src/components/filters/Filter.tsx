@@ -23,7 +23,6 @@ const Filter: React.FC<FilterProps> = ({ items, camera, scene }) => {
   const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const { value, dataset } = event.target;
     const property = dataset.property;
-    console.log(value)
 
     setSelectedOptions((prevOptions) => {
       const updatedOptions = [...prevOptions];

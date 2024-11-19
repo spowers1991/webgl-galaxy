@@ -35,7 +35,7 @@ class UIEngine {
     private render() {
         if (this.root) {
             this.root.render(
-                <div id={this.rootElementId} style={{ width: window.innerWidth < 768 ? '100%' : '500px' , display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                <div id={this.rootElementId} style={{ width: window.innerWidth < 768 ? '100%' : '500px' , display: 'flex', flexDirection: 'column', gap: '10px' }}>
                     <UIComponent name="info">
                         <ObjectInfo property={'starConfig'} />
                     </UIComponent>

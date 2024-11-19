@@ -8,14 +8,12 @@ interface TaskbarProps {
   componentName: string;
   componentVisible: boolean;
   setComponentVisible: () => void;
-  onDrag: any; // Change this to a boolean for simplicity
 }
 
 const Taskbar: React.FC<TaskbarProps> = ({
   componentName,
   componentVisible,
   setComponentVisible,
-  onDrag
 }) => {
 
   return (
@@ -45,10 +43,6 @@ const Taskbar: React.FC<TaskbarProps> = ({
           cursor: 'pointer',
         }}
         onClick={setComponentVisible}
-        onTouchStart={(e) => {
-          e.stopPropagation();
-          setComponentVisible();
-        }}
       >
         {componentVisible ? (
           <div
@@ -82,7 +76,7 @@ const Taskbar: React.FC<TaskbarProps> = ({
           marginLeft: 'auto',
         }}
       >
-        {onDrag ? <DraggingWindowSVG /> : <DraggableWindowSVG />}
+        <DraggingWindowSVG />
       </div>
     </div>
   );

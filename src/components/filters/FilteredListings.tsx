@@ -19,7 +19,7 @@ const FilteredListings: React.FC<FilteredListingsProps> = ({ filters, camera, sc
       className="container filtered-container"
       style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
+        gridTemplateColumns: window.innerWidth < 768 ? 'repeat(1, 1fr)' : 'repeat(3, 1fr)',
         gap: '10px',
         overflowY: 'scroll',
       }}
