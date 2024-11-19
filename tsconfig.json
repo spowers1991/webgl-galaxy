@@ -1,20 +1,23 @@
 {
-  "compilerOptions": {
+    "compilerOptions": {
       "target": "es6",
       "module": "commonjs",
       "strict": false,
       "esModuleInterop": true,
+      "jsx": "react",                  // Enables JSX support in TypeScript (use "react-jsx" if using React 17+)
       "baseUrl": "./",
       "paths": {
-          "@/*": ["src/*"],
-          "@assets/*": ["declarations/*"]  
+        "@/*": ["src/*"],
+        "@assets/*": ["declarations/*"]  
       }
-  },
-  "include": [
-      "src/**/*.ts",
-      "declarations/**/*.d.ts"  
-  ],
-  "exclude": [
+    },
+    "include": [
+      "src/**/*.ts",                   // Includes all .ts files in src
+      "src/**/*.tsx",                  // Includes all .tsx files in src
+      "declarations/**/*.d.ts"         // Includes all declaration files
+    ],
+    "exclude": [
       "node_modules"
-  ]
-}
+    ]
+  }
+  

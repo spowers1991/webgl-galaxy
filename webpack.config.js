@@ -13,9 +13,17 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts$/, // Match TypeScript files
-        use: 'ts-loader', // Use ts-loader for TypeScript files
-        exclude: /node_modules/,
+        test: /\.tsx?$/, // Match both .ts and .tsx files
+        use: [
+          {
+            loader: 'babel-loader', // Use Babel for JSX
+            options: {
+              presets: ['@babel/preset-react'], // Add React preset for JSX
+            },
+          },
+          'ts-loader', // Then use ts-loader for TypeScript
+        ],
+        exclude: /node_modules/, // Exclude node_modules
       },
       {
         test: /\.m?js$/,
@@ -31,18 +39,33 @@ module.exports = {
           filename: 'assets/[name][ext][query]',
         },
       },
+      {
+        test: /\.svg$/i,
+        oneOf: [
+          {
+            issuer: /\.[jt]sx?$/, // Use @svgr/webpack for SVG imports in JS/TS
+            use: ['@svgr/webpack'],
+          },
+          {
+            type: 'asset/resource', // Use asset/resource for other cases (e.g., <img src="..."/>)
+            generator: {
+              filename: 'assets/[name][ext][query]',
+            },
+          },
+        ],
+      },
     ],
   },
   resolve: {
-    extensions: ['.ts', '.js'], // Resolve TypeScript and JavaScript files
+    extensions: ['.tsx', '.ts', '.js'], // Resolve .tsx, .ts, and .js extensions
     alias: {
-      '@': path.resolve(__dirname, 'src/'),
+      '@': path.resolve(__dirname, 'src'),
     },
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      inject: false, 
+      inject: false,
     }),
   ],
   devServer: {
