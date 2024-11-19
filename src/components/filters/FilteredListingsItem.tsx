@@ -16,11 +16,22 @@ const FilteredListingsItem: React.FC<FilteredListingsItemProps> = ({ item, index
     focusOnObject(item, camera, scene);
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    e.preventDefault();
+    handleClick(); 
+  };
+
   return (
     <div
       id={`item-${index}`}
-      style={{ cursor: 'pointer', padding: '15px', border: '1px solid #fff' }}
-      onClick={handleClick}  // Use the inline onClick handler
+      style={{
+        cursor: 'pointer',
+        padding: '15px',
+        border: '1px solid #fff',
+        userSelect: 'none', 
+      }}
+      onClick={handleClick}  
+      onTouchStart={handleTouchStart} 
     >
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', height: '100%' }}>
         <div>{item.starConfig.generatedName}</div>
