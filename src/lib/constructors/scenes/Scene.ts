@@ -7,9 +7,9 @@ import { Galaxy } from '@/lib/constructors/gameObjects/prefabs/galaxies/Galaxy';
 import UIEngine from '@/lib/constructors/ui/UIEngine';
 
 const sceneConfig: SceneConfig = {
-    numStars: 200,
+    numStars: 150,
     stars: [],
-    densityFactor: 0.5,
+    densityFactor: 0.75,
     galaxyRadius: 300,    // Maximum radius of the galaxy
     galaxyThickness: 150,  // Thickness of the galaxy in the vertical direction
     numArms: 4,            // Number of spiral arms
