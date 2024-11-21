@@ -5,7 +5,7 @@ import { calculateZoomSensitivity } from '../helpers/calculateZoomSensitivity';
 export function updateCamera(camera: BABYLON.ArcRotateCamera, activeObject: any) {
 
     if (activeObject && activeObject.starConfig && activeObject.starConfig.diameter) {
-        const cameraZoomDistance = activeObject.starConfig.diameter * 3;
+        const cameraZoomDistance = activeObject.starConfig.diameter * 5;
         
         camera.lowerRadiusLimit = cameraZoomDistance;
 

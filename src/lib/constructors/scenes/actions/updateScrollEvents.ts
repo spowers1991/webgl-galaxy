@@ -5,12 +5,9 @@ import cameraState from '../../cameras/CameraState';
 export function updateScrollEvents(scene: BABYLON.Scene, camera: Camera): void {
 
     scene.onPointerObservable.add((pointerInfo) => {
-        const distance = camera.properties?.radius;
         switch (pointerInfo.type) {
             case BABYLON.PointerEventTypes.POINTERWHEEL:
-                cameraState.setCameraCurrentRange(distance); 
-                break;
-            case BABYLON.PointerEventTypes.POINTERTAP:
+                const distance = camera.properties?.radius;
                 cameraState.setCameraCurrentRange(distance); 
                 break;
         }

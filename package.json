@@ -16,6 +16,7 @@
     "babylonjs-loaders": "^7.13.1",
     "babylonjs-materials": "^7.13.1",
     "mobx": "^6.13.1",
+    "mobx-react": "^9.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-draggable": "^4.4.6"

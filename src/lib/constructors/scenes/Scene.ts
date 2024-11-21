@@ -7,7 +7,7 @@ import { Galaxy } from '@/lib/constructors/gameObjects/prefabs/galaxies/Galaxy';
 import UIEngine from '@/lib/constructors/ui/UIEngine';
 
 const sceneConfig: SceneConfig = {
-    numStars: 100,
+    numStars: 200,
     stars: [],
     densityFactor: 0.5,
     galaxyRadius: 300,    // Maximum radius of the galaxy

@@ -25,7 +25,7 @@ const CurrentFilterInfo: React.FC<CurrentFilterInfoProps> = ({ filters, properti
           <div style="display: flex; flex-direction: column; gap: 5px; text-transform: capitalize;">
             <div>
               <span style="opacity: 0.8">${key}:</span> ${valueStr.toLowerCase()}
-              <span style="font-size: 14px; opacity: 0.8">${affixes[index]?.toString()}</span>
+              <span style="font-size: 14px; opacity: 0.8"></span>
             </div>
           </div>
         `;

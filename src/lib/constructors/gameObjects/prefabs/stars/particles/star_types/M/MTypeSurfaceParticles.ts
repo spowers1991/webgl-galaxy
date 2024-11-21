@@ -39,10 +39,10 @@ export class MTypeSurfaceParticles {
                 //sunEmitter.radius = 0.51;
                 this.particleSystem.minScaleX = diameter 
                 this.particleSystem.minScaleY =  diameter 
-                this.particleSystem.maxScaleX = diameter + 0.065
-                this.particleSystem.maxScaleY =  diameter + 0.065
-                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.015, 0.002))); 
-                this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.015, 0.025))); 
+                this.particleSystem.maxScaleX = diameter + 0.06
+                this.particleSystem.maxScaleY =  diameter + 0.06
+                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.001, 0.001))); 
+                this.particleSystem.addColorGradient(0.5, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.001, 0.001))); 
         }
 
         this.particleSystem.minLifeTime = 8.0;

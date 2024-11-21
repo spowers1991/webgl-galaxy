@@ -60,7 +60,7 @@ export default class Star extends GameObject {
             if (objectInView) {
 
                 // Start particles if the condition is met
-                this.surfaceParticles.start();
+                //this.surfaceParticles.start();
                 this.flareParticles.start();
                 this.coronaParticles.start();
 
@@ -74,7 +74,7 @@ export default class Star extends GameObject {
                 }
             } else {
                 // Optionally, you can stop particles if the condition is not met
-                this.surfaceParticles.stop();
+                //this.surfaceParticles.stop();
                 this.flareParticles.stop();
                 // Keep Coronas switched on for certain start types
                 if (this.starConfig.type === "O" || this.starConfig.type === "K" || this.starConfig.type === "M"){ 
@@ -82,7 +82,7 @@ export default class Star extends GameObject {
                 } else {
                     this.coronaParticles.stop();
                 }
-                this.surfaceParticles.reset();
+                //this.surfaceParticles.reset();
                 this.flareParticles.reset();
                 this.coronaParticles.reset();
             }
@@ -92,6 +92,7 @@ export default class Star extends GameObject {
     // Observe every frame
     private observeFrameUpdate() {
         this.scene.onBeforeRenderObservable.add(() => {
+            this.mesh.rotation.y += BABYLON.Tools.ToRadians(0.02);
             const objectsToRender = sceneState.getObjectsToRender().slice();
             const objectInView = objectsToRender.some(obj => obj === this.mesh);
             if (objectInView) {
