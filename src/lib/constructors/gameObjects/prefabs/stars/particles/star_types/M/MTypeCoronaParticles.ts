@@ -27,17 +27,17 @@ export class MTypeCoronaParticles {
                 this.particleSystem.minScaleY = diameter * getRandomNumberBetween(3, 6);
                 this.particleSystem.maxScaleX = diameter * getRandomNumberBetween(3, 6);
                 this.particleSystem.maxScaleY = diameter * getRandomNumberBetween(3, 6);
-                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2, getRandomNumberBetween(0.1, 0.25)));
-                this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.1, 0.25))); 
+                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2, getRandomNumberBetween(0.1, 0.35)));
+                this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.1, 0.35))); 
         }
         else {
             this.type = "dwarf"
                 this.particleSystem.particleTexture = new BABYLON.Texture(starTextureRedDwarf, scene);
-                this.particleSystem.minScaleX = getRandomNumberBetween(10, 15);
+                this.particleSystem.minScaleX = getRandomNumberBetween(5, 10);
                 this.particleSystem.minScaleY = getRandomNumberBetween(2, 5);
-                this.particleSystem.maxScaleX = getRandomNumberBetween(10, 15);
+                this.particleSystem.maxScaleX = getRandomNumberBetween(5, 10);
                 this.particleSystem.maxScaleY = getRandomNumberBetween(2, 5);
-                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2,  getRandomNumberBetween(0.1, 0.125)));
+                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2,  getRandomNumberBetween(0.1, 0.2)));
         }
         
         this.particleSystem.minLifeTime = 30.0;

@@ -18,9 +18,9 @@ export function getStarLuminosity(type: string, diameter: number): number {
             return getRandomNumberBetween(2.3, 3);
         case 'M':
             if(diameter > 1) {
-                return getRandomNumberBetween(0.7, 1.5); 
+                return getRandomNumberBetween(1, 1.5); 
             } else {
-                return getRandomNumberBetween(0.5, 0.8); 
+                return getRandomNumberBetween(1, 2); 
             }
         default:
             throw new Error(`Unsupported star type: ${type}`);
