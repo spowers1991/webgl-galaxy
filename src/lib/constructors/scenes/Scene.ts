@@ -3,6 +3,7 @@ import Camera from '@/lib/constructors/cameras/Camera';
 import { SceneConfig } from './configs/SceneConfig';
 import { updateClickEvents } from './actions/updateClickEvents';
 import { updateScrollEvents } from './actions/updateScrollEvents';
+import { updateTouchEvents } from './actions/updateTouchEvents';
 import { Galaxy } from '@/lib/constructors/gameObjects/prefabs/galaxies/Galaxy';
 import UIEngine from '@/lib/constructors/ui/UIEngine';
 
@@ -42,6 +43,7 @@ export default class Scene {
         // Setup input events
         updateClickEvents(this.scene, this.camera);
         updateScrollEvents(this.scene, this.camera);
+        updateTouchEvents(this.scene, this.camera);
 
         // Initialize UI engine (fix constructor call)
         this.initializeUIEngine();
