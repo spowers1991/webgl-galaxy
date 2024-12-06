@@ -11,7 +11,7 @@ const sceneConfig: SceneConfig = {
     numStars: 150,
     stars: [],
     densityFactor: 0.75,
-    galaxyRadius: 500,    // Maximum radius of the galaxy
+    galaxyRadius: 400,    // Maximum radius of the galaxy
     galaxyThickness: 150,  // Thickness of the galaxy in the vertical direction
     numArms: 4,            // Number of spiral arms
     spiralFactor: 5,       // Factor to control the tightness of the spirals
@@ -39,8 +39,8 @@ export default class Scene {
         // Setup image processing
         this.scene.imageProcessingConfiguration.toneMappingEnabled = true;
         this.scene.imageProcessingConfiguration.toneMappingType = BABYLON.ImageProcessingConfiguration.TONEMAPPING_ACES; 
-        this.scene.imageProcessingConfiguration.exposure = 1.0; 
-        this.scene.imageProcessingConfiguration.contrast = 1.0;
+        this.scene.imageProcessingConfiguration.exposure = 2.5; 
+        this.scene.imageProcessingConfiguration.contrast = 1.5;
 
         // Create galaxy
         const galaxy = new Galaxy(this.scene, sceneConfig);
