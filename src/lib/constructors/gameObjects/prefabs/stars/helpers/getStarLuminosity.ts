@@ -7,7 +7,7 @@ export function getStarLuminosity(type: string, diameter: number): number {
         case 'O':
             return getRandomNumberBetween(3, 15); 
         case 'B':
-            return getRandomNumberBetween(1.5, 3.25); 
+            return getRandomNumberBetween(2, 3.25); 
         case 'A':
             return getRandomNumberBetween(1, 1.5); 
         case 'F':

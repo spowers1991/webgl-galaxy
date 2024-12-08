@@ -10,15 +10,12 @@ export function updateTouchEvents(scene: BABYLON.Scene, camera: Camera): void {
         switch (pointerInfo.type) {
             case BABYLON.PointerEventTypes.POINTERDOWN:
                 // Handle touch start event
-                console.log('Touch started', pointerInfo.event);
                 cameraState.setCameraCurrentRange(distance); 
                 break;
 
             case BABYLON.PointerEventTypes.POINTERMOVE:
                 // Handle touch move event
                 if (pointerInfo.event instanceof TouchEvent) {
-                    const touch = pointerInfo.event.touches[0];
-                    console.log('Touch move:', { x: touch.clientX, y: touch.clientY });
                     cameraState.setCameraCurrentRange(distance); 
                 }
                 break;
@@ -26,7 +23,6 @@ export function updateTouchEvents(scene: BABYLON.Scene, camera: Camera): void {
             case BABYLON.PointerEventTypes.POINTERUP:
                 // Handle touch end event
                 cameraState.setCameraCurrentRange(distance); 
-                console.log('Touch ended', pointerInfo.event);
                 break;
         }
     });

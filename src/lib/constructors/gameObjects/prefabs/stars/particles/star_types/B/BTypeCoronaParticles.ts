@@ -6,7 +6,7 @@ export class BTypeCoronaParticles {
     public particleSystem: BABYLON.ParticleSystem;
 
     constructor(scene: BABYLON.Scene, mesh: BABYLON.Mesh, emitter: BABYLON.IParticleEmitterType, diameter: number) {
-        this.particleSystem = new BABYLON.ParticleSystem("coronaParticles", 20, scene);
+        this.particleSystem = new BABYLON.ParticleSystem("coronaParticles", 30, scene);
 
         this.particleSystem.particleTexture = new BABYLON.Texture(starTexture, scene);
         this.particleSystem.preWarmStepOffset = 10;
@@ -19,10 +19,10 @@ export class BTypeCoronaParticles {
 
         this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.7, 0.7, 1, getRandomNumberBetween(0.75, 1)));
 
-        this.particleSystem.minScaleX = diameter * getRandomNumberBetween(3, 6);
-        this.particleSystem.minScaleY = diameter * getRandomNumberBetween(5, 10);
-        this.particleSystem.maxScaleX = diameter * getRandomNumberBetween(3, 6);
-        this.particleSystem.maxScaleY = diameter * getRandomNumberBetween(5, 10);
+        this.particleSystem.minScaleX = diameter * getRandomNumberBetween(2, 8);
+        this.particleSystem.minScaleY = diameter * getRandomNumberBetween(5, 15);
+        this.particleSystem.maxScaleX = diameter * getRandomNumberBetween(2, 8);
+        this.particleSystem.maxScaleY = diameter * getRandomNumberBetween(5, 15);
 
         this.particleSystem.minLifeTime = 10.0;
         this.particleSystem.maxLifeTime = 60.0;
