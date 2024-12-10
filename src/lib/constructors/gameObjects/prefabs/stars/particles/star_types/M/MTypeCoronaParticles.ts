@@ -1,5 +1,5 @@
 import * as BABYLON from 'babylonjs';
-import starTextureRedDwarf from '@/assets/T_Aura_Purple.png';
+import starTextureRedDwarf from '@/assets/T_Aura_Red_2.webp';
 import starTextureRedGiant from '@/assets/T_Aura_Red_2.webp';
 import { getRandomNumberBetween } from '@/utils/getRandomNumberBetween'
 
@@ -33,11 +33,11 @@ export class MTypeCoronaParticles {
         else {
             this.type = "dwarf"
                 this.particleSystem.particleTexture = new BABYLON.Texture(starTextureRedDwarf, scene);
-                this.particleSystem.minScaleX = getRandomNumberBetween(10, 15);
+                this.particleSystem.minScaleX = getRandomNumberBetween(5, 10);
                 this.particleSystem.minScaleY = getRandomNumberBetween(2, 5);
-                this.particleSystem.maxScaleX = getRandomNumberBetween(10, 15);
+                this.particleSystem.maxScaleX = getRandomNumberBetween(5, 10);
                 this.particleSystem.maxScaleY = getRandomNumberBetween(2, 5);
-                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2,  getRandomNumberBetween(0.1, 0.125)));
+                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2,  getRandomNumberBetween(0.01, 0.05)));
         }
         
         this.particleSystem.minLifeTime = 30.0;
