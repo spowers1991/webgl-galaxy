@@ -35,10 +35,10 @@ export class KTypeFlareParticles {
         }
         else {
             this.type = "dwarf"
-            this.particleSystem.minScaleX = diameter * getRandomNumberBetween(1, 2);
-            this.particleSystem.minScaleY = diameter * getRandomNumberBetween(1, 2);
-            this.particleSystem.maxScaleX = diameter * getRandomNumberBetween(1, 2);
-            this.particleSystem.maxScaleY = diameter * getRandomNumberBetween(1, 2);
+            this.particleSystem.minScaleX = diameter * getRandomNumberBetween(2, 3);
+            this.particleSystem.minScaleY = diameter * getRandomNumberBetween(2, 3);
+            this.particleSystem.maxScaleX = diameter * getRandomNumberBetween(2, 3);
+            this.particleSystem.maxScaleY = diameter * getRandomNumberBetween(2, 3);
         }
 
         this.particleSystem.addSizeGradient(0, 0);

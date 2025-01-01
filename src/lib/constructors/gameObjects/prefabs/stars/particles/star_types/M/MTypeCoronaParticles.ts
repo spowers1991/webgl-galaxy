@@ -32,12 +32,13 @@ export class MTypeCoronaParticles {
         }
         else {
             this.type = "dwarf"
+                const textureRadius = this.particleSystem.minScaleX = diameter * getRandomNumberBetween(3, 5);
                 this.particleSystem.particleTexture = new BABYLON.Texture(starTextureRedDwarf, scene);
-                this.particleSystem.minScaleX = getRandomNumberBetween(5, 10);
-                this.particleSystem.minScaleY = getRandomNumberBetween(2, 5);
-                this.particleSystem.maxScaleX = getRandomNumberBetween(5, 10);
-                this.particleSystem.maxScaleY = getRandomNumberBetween(2, 5);
-                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2,  getRandomNumberBetween(0.01, 0.05)));
+                this.particleSystem.minScaleX = textureRadius
+                this.particleSystem.minScaleY = textureRadius
+                this.particleSystem.maxScaleX = textureRadius
+                this.particleSystem.maxScaleY = textureRadius
+                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2,  getRandomNumberBetween(0.12, 0.15)));
         }
         
         this.particleSystem.minLifeTime = 30.0;

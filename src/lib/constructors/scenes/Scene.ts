@@ -35,6 +35,7 @@ export default class Scene {
         // Setup glow layer
         this.glowLayer = new BABYLON.GlowLayer("glow", this.scene);
         this.glowLayer.intensity = 2;
+        //this.glowLayer.renderingGroupId = 3;
 
         // Setup image processing
         this.scene.imageProcessingConfiguration.toneMappingEnabled = true;
