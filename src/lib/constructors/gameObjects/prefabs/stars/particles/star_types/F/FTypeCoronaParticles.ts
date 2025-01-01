@@ -1,5 +1,5 @@
 import * as BABYLON from 'babylonjs';
-import starTexture from '@/assets/T_Aura_Yellow.png';
+import starTexture from '@/assets/T_Aura_Blue.png';
 import { getRandomNumberBetween } from '@/utils/getRandomNumberBetween'
 
 export class FTypeCoronaParticles {
@@ -17,7 +17,7 @@ export class FTypeCoronaParticles {
         this.particleSystem.emitter = mesh;
         this.particleSystem.particleEmitterType = emitter;
 
-        this.particleSystem.addColorGradient(0.0, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.5, 1)));
+        this.particleSystem.addColorGradient(0.0, new BABYLON.Color4(0.3773, 0.0930, 0.0266, getRandomNumberBetween(0.75, 1)));
 
         this.particleSystem.minScaleX = diameter * getRandomNumberBetween(5, 10)
         this.particleSystem.minScaleY = diameter * getRandomNumberBetween(5, 10)
@@ -25,8 +25,8 @@ export class FTypeCoronaParticles {
         this.particleSystem.maxScaleY = diameter * getRandomNumberBetween(5, 10)
 
 
-        this.particleSystem.minLifeTime = 30.0;
-        this.particleSystem.maxLifeTime = 60.0;
+        this.particleSystem.minLifeTime = 300.0;
+        this.particleSystem.maxLifeTime = 600.0;
 
         this.particleSystem.emitRate = 300;
 
