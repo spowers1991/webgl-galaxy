@@ -1,5 +1,5 @@
 import * as BABYLON from 'babylonjs';
-import sunSurfaceTexture from '@/assets/T_SunSurface.png';
+import sunSurfaceTexture from '@/assets/T_SunSurface.webp';
 import { getRandomNumberBetween } from '@/utils/getRandomNumberBetween'
 
 export class KTypeSurfaceParticles {

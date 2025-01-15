@@ -1,5 +1,5 @@
 import * as BABYLON from 'babylonjs';
-import sunFlareTexture from '@/assets/T_SunFlare.png';
+import sunFlareTexture from '@/assets/T_SunFlare.webp';
 import { getRandomNumberBetween } from '@/utils/getRandomNumberBetween'
 
 export class GTypeFlareParticles {

@@ -1,5 +1,5 @@
 import * as BABYLON from 'babylonjs';
-import starTexture from '@/assets/T_Aura_Blue.png';
+import starTexture from '@/assets/T_Aura_Blue.webp';
 import { getRandomNumberBetween } from '@/utils/getRandomNumberBetween'
 
 export class FTypeCoronaParticles {

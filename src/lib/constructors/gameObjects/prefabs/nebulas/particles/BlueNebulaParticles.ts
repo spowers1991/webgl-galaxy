@@ -1,5 +1,5 @@
 import * as BABYLON from 'babylonjs';
-import NebulaTexture from '@/assets/T_Cluster_Nebula_A.png';
+import NebulaTexture from '@/assets/T_Cluster_Nebula_A.webp';
 import { getRandomNumberBetween } from '@/utils/getRandomNumberBetween';
 
 export class BlueNebulaParticles {

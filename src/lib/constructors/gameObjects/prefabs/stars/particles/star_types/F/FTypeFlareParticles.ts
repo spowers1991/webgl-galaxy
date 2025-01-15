@@ -1,5 +1,5 @@
 import * as BABYLON from 'babylonjs';
-import sunFlareTexture from '@/assets/T_SunFlare.png';
+import sunFlareTexture from '@/assets/T_SunFlare.webp';
 
 export class FTypeFlareParticles {
     public particleSystem: BABYLON.ParticleSystem;
