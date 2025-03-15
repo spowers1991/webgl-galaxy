@@ -1,5 +1,5 @@
 import * as BABYLON from 'babylonjs';
-import NebulaTexture from '@/assets/T_Cluster_Nebula_A.png';
+import NebulaTexture from '@/assets/nebula_texture.webp';
 import { getRandomNumberBetween } from '@/utils/getRandomNumberBetween';
 
 export class BlueNebulaParticles {
@@ -8,7 +8,7 @@ export class BlueNebulaParticles {
 
     constructor(scene: BABYLON.Scene, mesh: BABYLON.Mesh, emitter: BABYLON.IParticleEmitterType) {
 
-        this.particlesCount = Math.round(getRandomNumberBetween(10, 12))
+        this.particlesCount = Math.round(getRandomNumberBetween(2, 5))
 
         this.particleSystem = new BABYLON.ParticleSystem("T_Cluster_Nebula_A_Type", this.particlesCount, scene);
 
@@ -21,7 +21,7 @@ export class BlueNebulaParticles {
         this.particleSystem.emitter = mesh;
         this.particleSystem.particleEmitterType = emitter;
 
-        this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 1, 1, 0.5));
+        this.particleSystem.addColorGradient(0, new BABYLON.Color4(1, 1, 1, 0.3));
 
         this.particleSystem.minScaleX = 500;
         this.particleSystem.minScaleY = 500;

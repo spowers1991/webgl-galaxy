@@ -21,6 +21,7 @@ export function generateStar(
     starType: string
 ) {
     const diameter = getStarDiameter(starType);
+    const surfaceTemperature = getStarSurfaceTemperature(starType, diameter);
 
     const starConfig: StarConfig = {
         id: id,
@@ -33,7 +34,7 @@ export function generateStar(
         generatedName: generateRandomStarName(),
         radius: getStarRadius(starType, diameter),
         surfaceTemperature: getStarSurfaceTemperature(starType, diameter),
-        particles: getParticleSystems(scene, starType, null, diameter),
+        particles: getParticleSystems(scene, starType, null, diameter, surfaceTemperature),
     };
 
     // Create star game object

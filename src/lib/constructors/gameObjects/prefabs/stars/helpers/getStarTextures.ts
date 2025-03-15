@@ -2,7 +2,6 @@ import SunSurfaceTexture from '@/assets/T_SunSurfaceTexture.webp'
 import SunSurfaceTexture2 from '@/assets/T_SunSurfaceTexture_2.webp'
 import SunSurfaceTexture3 from '@/assets/T_SunSurfaceTexture_3.webp'
 import SunSurfaceTexture4 from '@/assets/T_SunSurfaceTexture_4.webp'
-import SunSurfaceTexture6 from '@/assets/T_SunSurfaceTexture_6.webp'
 import SunSurfaceTexture8 from '@/assets/T_SunSurfaceTexture_8.webp'
 import SunSurfaceTexture9 from '@/assets/T_SunSurfaceTexture_9.webp'
 import SunSurfaceTexture10 from '@/assets/T_SunSurfaceTexture_10.webp'
@@ -12,7 +11,6 @@ import SunSurfaceTexture13 from '@/assets/SunSurfaceTexture_13.webp'
 import SunSurfaceTexture14 from '@/assets/T_SunSurfaceTexture_14.webp'
 import SunSurfaceTexture15 from '@/assets/T_SunSurfaceTexture_15.webp'
 import SunSurfaceTexture16 from '@/assets/T_SunSurfaceTexture_16.webp'
-import SunSurfaceTexture17 from '@/assets/T_SunSurfaceTexture_17.webp'
 import SunSurfaceTexture18 from '@/assets/T_SunSurfaceTexture_18.webp'
 import SunSurfaceTexture19 from '@/assets/T_SunSurfaceTexture_19.webp'
 
@@ -29,18 +27,16 @@ export function getStarTextures( type: String , diameter: number) {
     ];
 
     const MGiantSurfaceTextures = [
-        SunSurfaceTexture4,
+        //SunSurfaceTexture4,
         SunSurfaceTexture8,
         SunSurfaceTexture9,
         SunSurfaceTexture10,
         SunSurfaceTexture13,
-        SunSurfaceTexture14
+        //SunSurfaceTexture14
     ];
 
     const MDwarfSurfaceTextures = [
       SunSurfaceTexture,  
-      //SunSurfaceTexture6,
-      SunSurfaceTexture17,
       SunSurfaceTexture18
     ];
 

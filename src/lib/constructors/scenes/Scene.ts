@@ -34,14 +34,12 @@ export default class Scene {
 
         // Setup glow layer
         this.glowLayer = new BABYLON.GlowLayer("glow", this.scene);
-        this.glowLayer.intensity = 2;
+        this.glowLayer.intensity = 3;
         //this.glowLayer.renderingGroupId = 3;
 
         // Setup image processing
         this.scene.imageProcessingConfiguration.toneMappingEnabled = true;
         this.scene.imageProcessingConfiguration.toneMappingType = BABYLON.ImageProcessingConfiguration.TONEMAPPING_ACES; 
-        this.scene.imageProcessingConfiguration.exposure = 2.5; 
-        this.scene.imageProcessingConfiguration.contrast = 1.5;
 
         // Create galaxy
         const galaxy = new Galaxy(this.scene, sceneConfig);

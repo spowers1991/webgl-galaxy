@@ -10,7 +10,7 @@ export class KTypeCoronaParticles {
 
     constructor(scene: BABYLON.Scene, mesh: BABYLON.Mesh, emitter: BABYLON.IParticleEmitterType, diameter: number) {
 
-        this.particleSystem = new BABYLON.ParticleSystem("coronaParticles", 60, scene);
+        this.particleSystem = new BABYLON.ParticleSystem("coronaParticles", 80, scene);
 
         this.particleSystem.preWarmStepOffset = 10;
         this.particleSystem.preWarmCycles = 1000;
