@@ -30,7 +30,7 @@ import { MTypeFlareParticles } from '../particles/star_types/M/MTypeFlareParticl
 
 
 // Function to get Particle Systems based on star type
-export function getParticleSystems(scene: BABYLON.Scene, type: string, mesh: BABYLON.Mesh, diameter: number) {
+export function getParticleSystems(scene: BABYLON.Scene, type: string, mesh: BABYLON.Mesh, diameter: number, surfaceTemperature: number) {
     // Define the emitter for corona particles
     const emitter = new BABYLON.SphereParticleEmitter();
     emitter.radius = 1;
@@ -39,7 +39,7 @@ export function getParticleSystems(scene: BABYLON.Scene, type: string, mesh: BAB
     switch(type) {
         case 'O':
             return {
-                corona: new OTypeCoronaParticles(scene, mesh, emitter, diameter),
+                corona: new OTypeCoronaParticles(scene, mesh, emitter, diameter, surfaceTemperature),
                 flare: new OTypeFlareParticles(scene, mesh, diameter),
                 surface: new OTypeSurfaceParticles(scene, mesh, diameter),
             };

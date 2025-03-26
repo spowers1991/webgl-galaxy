@@ -1,6 +1,6 @@
 import * as BABYLON from 'babylonjs';
-import starTextureRedDwarf from '@/assets/T_Aura_Red_2.webp';
-import starTextureRedGiant from '@/assets/T_Aura_Red_2.webp';
+import starTextureRedDwarf from '@/assets/red_emission.webp';
+import starTextureRedGiant from '@/assets/red_giant.webp';
 import { getRandomNumberBetween } from '@/utils/getRandomNumberBetween'
 
 export class MTypeCoronaParticles {
@@ -27,8 +27,7 @@ export class MTypeCoronaParticles {
                 this.particleSystem.minScaleY = diameter * getRandomNumberBetween(3, 6);
                 this.particleSystem.maxScaleX = diameter * getRandomNumberBetween(3, 6);
                 this.particleSystem.maxScaleY = diameter * getRandomNumberBetween(3, 6);
-                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2, getRandomNumberBetween(0.1, 0.25)));
-                this.particleSystem.addColorGradient(0.75, new BABYLON.Color4(0.68, 0.17, 0.17, getRandomNumberBetween(0.1, 0.25))); 
+                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2, getRandomNumberBetween(0.025, 0.035)));
         }
         else {
             this.type = "dwarf"
@@ -38,7 +37,7 @@ export class MTypeCoronaParticles {
                 this.particleSystem.minScaleY = textureRadius
                 this.particleSystem.maxScaleX = textureRadius
                 this.particleSystem.maxScaleY = textureRadius
-                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2,  getRandomNumberBetween(0.12, 0.15)));
+                this.particleSystem.addColorGradient(0, new BABYLON.Color4(0.8, 0.2, 0.2,  getRandomNumberBetween(0.025, 0.05)));
         }
         
         this.particleSystem.minLifeTime = 30.0;
